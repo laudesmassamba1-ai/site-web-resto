@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LE BAZAR — objets de tout genre</title>
+  <meta name="description" content="Le grand bazar : 84 références, des objets de tout genre, en stock, envoyés sous 48 h." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="crt" aria-hidden="true"></div>
+
+  <header class="masthead-bar">
+    <div class="brand">
+      <span class="brand-mark mono" aria-hidden="true">▮</span>
+      <p class="brand-name">LE BAZAR <span class="brand-tag mono">boutique générale · depuis 1986</span></p>
+    </div>
+    <nav class="topnav mono" aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a>
+      <a href="#categories">Rayonnages</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#commander" class="nav-cta">Commander <span class="cart-count" id="cartCount" aria-live="polite">0</span></a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= Nº 01 — COUVERTURE ================= -->
+    <section class="spread" id="accueil">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 01 — Boutique</p>
+          </div>
+          <div class="band hero-band">
+            <div class="hero-copy stack" style="grid-column:1 / 7;">
+              <p class="kicker mono">Objets de tout genre, sous un même toit</p>
+              <h1 class="masthead">Tout.<br />Sans exception.</h1>
+              <p class="lede body">Un comptoir, un rayonnage, une caissière. On vend ce qu'on aurait aimé trouver : des choses utiles, solides, jolies — pour la maison, la cuisine, le bureau et les mains.</p>
+            </div>
+            <div class="terminal-frame" style="grid-column:8 / 13;">
+              <div class="window-header">
+                <div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div>
+                <div class="window-title mono">bazar@maison:~/rayon</div>
+              </div>
+              <pre class="terminal-body mono"><span class="t-prompt">bazar@maison:~/rayon$</span> ls
+catalogue/  comptoir/  promos/  rayonnage/
+<span class="t-prompt">bazar@maison:~/rayon$</span> cat special.md
+<span class="t-cmd">── objets de tout genre ──────────</span>
+ 84 références en rayon
+ 0 rupture de stock (vérifié)
+ 48 h pour arriver chez toi
+ 3× sans frais à la caisse
+<span class="t-prompt">bazar@maison:~/rayon$</span> <span class="t-caret">▮</span></pre>
+            </div>
+          </div>
+          <div class="band stats">
+            <div class="stat" style="grid-column:1 / 5;">
+              <p class="stat-num mono">84</p>
+              <p class="label mono">références au catalogue</p>
+            </div>
+            <div class="stat" style="grid-column:5 / 9;">
+              <p class="stat-num mono">48 h</p>
+              <p class="label mono">de la commande à la porte</p>
+            </div>
+            <div class="stat" style="grid-column:9 / 13;">
+              <p class="stat-num mono">3×</p>
+              <p class="label mono">paiement sans frais</p>
+            </div>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= Nº 02 — RAYONNAGES ================= -->
+    <section class="spread" id="categories">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 02 — Le rayonnage</p>
+          </div>
+          <div class="band">
+            <p class="kicker mono" style="grid-column:1 / 13;">Quatre étagères, tout le reste</p>
+            <h2 class="shead-title" style="grid-column:1 / 10;">Des rayons clairs, des prix écrits au feutre, rien de caché sous le tapis.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">Clique sur un rayon pour sauter au catalogue.</p>
+          </div>
+          <div class="band categ-band">
+            <a class="categ-card window-frame" href="#catalogue" data-cat="Maison" data-pix="LAMP" data-color="#f0883e" style="grid-column:1 / 4;">
+              <div class="categ-pix pix" aria-hidden="true"></div>
+              <p class="cname mono">Maison</p>
+              <p class="cdesc mono">12 objets pour l'intérieur</p>
+            </a>
+            <a class="categ-card window-frame" href="#catalogue" data-cat="Cuisine" data-pix="CUP" data-color="#58a6ff" style="grid-column:4 / 7;">
+              <div class="categ-pix pix" aria-hidden="true"></div>
+              <p class="cname mono">Cuisine</p>
+              <p class="cdesc mono">9 ustensiles qui durent</p>
+            </a>
+            <a class="categ-card window-frame" href="#catalogue" data-cat="Tech" data-pix="KEYB" data-color="#3fb950" style="grid-column:7 / 10;">
+              <div class="categ-pix pix" aria-hidden="true"></div>
+              <p class="cname mono">Tech</p>
+              <p class="cdesc mono">14 appareils utiles</p>
+            </a>
+            <a class="categ-card window-frame" href="#catalogue" data-cat="Papeterie" data-pix="NOTE" data-color="#bc8cff" style="grid-column:10 / 13;">
+              <div class="categ-pix pix" aria-hidden="true"></div>
+              <p class="cname mono">Papeterie</p>
+              <p class="cdesc mono">10 choses à écrire</p>
+            </a>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= Nº 03 — CATALOGUE ================= -->
+    <section class="spread" id="catalogue">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 03 — Le catalogue</p>
+          </div>
+          <div class="band">
+            <p class="kicker mono" style="grid-column:1 / 13;">Ce qu'on a en rayon, à l'instant</p>
+            <h2 class="shead-title" style="grid-column:1 / 10;">Douze coups de cœur parmi les fidèles de la maison.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">En stock, compté à la caisse. Prix TTC.</p>
+          </div>
+          <div class="band catband">
+
+            <div class="item window-frame" data-ref="BA-001" data-cat="Maison" data-pix="LAMP" data-color="#f0883e" style="grid-column:1 / 5;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-001 · Maison</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Lampe à filament</p>
+                <p class="pdesc mono">La lampe du comptoir. Chaud, câblé, solide.</p>
+                <div class="prow"><p class="price mono">39 €</p><button class="add mono" data-ref="BA-001" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-002" data-cat="Cuisine" data-pix="CUP" data-color="#58a6ff" style="grid-column:5 / 9;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-002 · Cuisine</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Tasse émaillée bleue</p>
+                <p class="pdesc mono">Émail bicolore, passe au lave-vaisselle.</p>
+                <div class="prow"><p class="price mono">12 €</p><button class="add mono" data-ref="BA-002" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-003" data-cat="Tech" data-pix="HEADSET" data-color="#3fb950" style="grid-column:9 / 13;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-003 · Tech</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Casque filaire vintage</p>
+                <p class="pdesc mono">Le câble, c'est une promesse de zéro latence.</p>
+                <div class="prow"><p class="price mono">89 €</p><button class="add mono" data-ref="BA-003" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-004" data-cat="Papeterie" data-pix="NOTE" data-color="#bc8cff" style="grid-column:1 / 5;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-004 · Papeterie</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Carnet A5 à spirale</p>
+                <p class="pdesc mono">Papier 90 g, 96 pages, coins arrondis.</p>
+                <div class="prow"><p class="price mono">9 €</p><button class="add mono" data-ref="BA-004" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-005" data-cat="Cuisine" data-pix="MEASURE" data-color="#58a6ff" style="grid-column:5 / 9;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-005 · Cuisine</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Verre mesureur gradué</p>
+                <p class="pdesc mono">Dé, cuillère, tasse : toutes les mesures.</p>
+                <div class="prow"><p class="price mono">8 €</p><button class="add mono" data-ref="BA-005" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-006" data-cat="Tech" data-pix="KEYB" data-color="#3fb950" style="grid-column:9 / 13;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-006 · Tech</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Clavier mécanique</p>
+                <p class="pdesc mono">Commutateurs clicky, rétro-éclairage sobre.</p>
+                <div class="prow"><p class="price mono">119 €</p><button class="add mono" data-ref="BA-006" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-007" data-cat="Maison" data-pix="TIN" data-color="#f0883e" style="grid-column:1 / 5;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-007 · Maison</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Boîte à biscuits en fer</p>
+                <p class="pdesc mono">Elle ment sur le contenu. C'est sa fonction.</p>
+                <div class="prow"><p class="price mono">16 €</p><button class="add mono" data-ref="BA-007" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-008" data-cat="Papeterie" data-pix="RULER" data-color="#bc8cff" style="grid-column:5 / 9;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-008 · Papeterie</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Règle en laiton 30 cm</p>
+                <p class="pdesc mono">Graduations gravées, elle vieillit bien.</p>
+                <div class="prow"><p class="price mono">14 €</p><button class="add mono" data-ref="BA-008" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-009" data-cat="Tech" data-pix="SPEAKER" data-color="#3fb950" style="grid-column:9 / 13;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-009 · Tech</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Enceinte de poche</p>
+                <p class="pdesc mono">Dans la poche du tablier, en fond de cuisine.</p>
+                <div class="prow"><p class="price mono">49 €</p><button class="add mono" data-ref="BA-009" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-010" data-cat="Maison" data-pix="BAG" data-color="#f0883e" style="grid-column:1 / 5;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-010 · Maison</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Tote bag en toile</p>
+                <p class="pdesc mono">Le marché du samedi, les livres du dimanche.</p>
+                <div class="prow"><p class="price mono">18 €</p><button class="add mono" data-ref="BA-010" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-011" data-cat="Cuisine" data-pix="CUP" data-color="#58a6ff" style="grid-column:5 / 9;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-011 · Cuisine</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Roulette à découper</p>
+                <p class="pdesc mono">Pâte fine, crustacés, gratins : ligne droite.</p>
+                <div class="prow"><p class="price mono">24 €</p><button class="add mono" data-ref="BA-011" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item window-frame" data-ref="BA-012" data-cat="Papeterie" data-pix="PEN" data-color="#bc8cff" style="grid-column:9 / 13;">
+              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-012 · Papeterie</div></div>
+              <div class="item-body">
+                <div class="pix" aria-hidden="true"></div>
+                <p class="pname mono">Stylo plume bordeaux</p>
+                <p class="pdesc mono">Plume fine, encre noire, écrire lentement.</p>
+                <div class="prow"><p class="price mono">22 €</p><button class="add mono" data-ref="BA-012" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= Nº 04 — COMMANDE ================= -->
+    <section class="spread" id="commander">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 04 — La commande</p>
+          </div>
+          <div class="band">
+            <p class="kicker mono" style="grid-column:1 / 13;">Ta liste, récapitulée</p>
+            <h2 class="shead-title" style="grid-column:1 / 9;">On emballe, on ficelle, on envoie.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">Ajoute des articles depuis le catalogue.</p>
+          </div>
+          <div class="band order-band">
+            <div class="cart window-frame" style="grid-column:1 / 6;">
+              <div class="window-header">
+                <div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div>
+                <div class="window-title mono">~/panier.txt</div>
+              </div>
+              <div class="cart-body">
+                <ul class="cart-items mono" id="cartItems">
+                  <li class="cart-empty">le panier est vide.<br />vas faire un tour au catalogue ↗</li>
+                </ul>
+                <div class="cart-total mono"><span>Total</span><span id="cartTotal">0 €</span></div>
+              </div>
+            </div>
+            <form class="order-form" id="orderForm" style="grid-column:7 / 13;">
+              <div class="form-row">
+                <label>Nom
+                  <input type="text" name="name" placeholder="Votre nom" required autocomplete="name" />
+                </label>
+                <label>Email
+                  <input type="email" name="email" placeholder="vous@exemple.com" required autocomplete="email" />
+                </label>
+              </div>
+              <label>Adresse de livraison
+                <input type="text" name="address" placeholder="Nº, rue, code postal, ville" required autocomplete="street-address" />
+              </label>
+              <label>Message pour le rayon
+                <textarea name="message" rows="4" placeholder="Un mot sur le colis, une précision…"></textarea>
+              </label>
+              <button class="btn mono" type="submit">Envoyer la commande</button>
+              <p class="form-status mono" id="orderStatus" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="mono">LE BAZAR — bonjour@lebazar.com</p>
+      <p class="mono">© 1986–2026 — compté à la main. <kbd class="fake">Ctrl+K</kbd> pour la palette de commandes.</p>
+    </div>
+  </footer>
+
+  <!-- ---- palette de commandes (Ctrl+K) ---- -->
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Palette de commandes" hidden>
+    <div class="palette-frame window-frame">
+      <div class="window-header">
+        <div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div>
+        <div class="window-title mono">commande rapide</div>
+      </div>
+      <input class="palette-input mono" id="paletteInput" placeholder="taper une commande…" autocomplete="off" />
+      <ul class="palette-list mono" id="paletteList"></ul>
+      <p class="palette-hint mono">↑↓ pour naviguer · entrée pour exécuter · échap pour fermer</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
