@@ -1,7 +1,5 @@
 /* ============================================================
-   L'ÉCLAIR — pâtisserie fine
-   - ALIGNEMENT OPTIQUE : l'encre (pas la boîte) sur la ligne
-   - LAME DE VERRE : parallaxe de réfraction (compositor-friendly)
+   L'ÉCLAIR — pâtisserie de quartier
    - Panier (ajout / quantité / total, prix en euros virgule)
    - Commande (formulaire)
    - Palette de commandes (Ctrl+K)
@@ -11,62 +9,6 @@
 function fmt(n) {
   return n.toFixed(2).replace('.', ',') + ' €';
 }
-
-/* ---- ALIGNEMENT OPTIQUE --------------------------------------
-   Les grands glyphes portent un porte-à-faux gauche : on mesure
-   l'encre réelle au canvas et on décale la boîte pour que l'encre
-   tombe sur la ligne de colonne.
-*/
-(function () {
-  var cvs = document.createElement('canvas');
-  var ctx = cvs.getContext('2d');
-  var sel = '.masthead, .shead-title, .cname, .stat-num';
-  function align() {
-    document.querySelectorAll(sel).forEach(function (el) {
-      el.style.marginLeft = '0px';
-      var cs = getComputedStyle(el);
-      var ch = (el.textContent || '').trim().charAt(0);
-      if (!ch) return;
-      if (cs.textTransform === 'uppercase') ch = ch.toUpperCase();
-      ctx.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
-      ctx.textAlign = 'left';
-      var abl = ctx.measureText(ch).actualBoundingBoxLeft;
-      if (isFinite(abl)) el.style.marginLeft = abl.toFixed(2) + 'px';
-    });
-  }
-  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(align); }
-  align();
-  var t;
-  window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(align, 120); });
-})();
-
-/* ---- LAME DE VERRE : parallaxe de réfraction ----
-   La souris déplace légèrement le poster derrière le verre
-   (illusion de lentille). Uniquement des custom properties et
-   des transform : rien sur le thread principal.
-*/
-(function () {
-  var cards = document.querySelectorAll('.pat-card, .categ-card');
-  cards.forEach(function (card) {
-    var ticking = false;
-    card.addEventListener('mousemove', function (e) {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var r = card.getBoundingClientRect();
-        var x = ((e.clientX - r.left) / r.width - 0.5) * 2;
-        var y = ((e.clientY - r.top) / r.height - 0.5) * 2;
-        card.style.setProperty('--gx', x.toFixed(3));
-        card.style.setProperty('--gy', y.toFixed(3));
-        ticking = false;
-      });
-    });
-    card.addEventListener('mouseleave', function () {
-      card.style.setProperty('--gx', 0);
-      card.style.setProperty('--gy', 0);
-    });
-  });
-})();
 
 /* ---- PANIER ---- */
 var cart = [];
@@ -159,12 +101,12 @@ if (form) {
     var email = (data.get('email') || '').toString().trim();
     var address = (data.get('address') || '').toString().trim();
     if (!name || !email || !address) {
-      formStatus.style.color = '#ef5b7c';
+      formStatus.style.color = '#a1361f';
       formStatus.textContent = 'Remplis ton nom, ton email et l\'adresse de livraison.';
       return;
     }
     if (!cart.length) {
-      formStatus.style.color = '#ef5b7c';
+      formStatus.style.color = '#a1361f';
       formStatus.textContent = 'Le plateau est vide : ajoute d\'abord une pièce au comptoir.';
       return;
     }
@@ -184,10 +126,10 @@ var paletteInput = document.getElementById('paletteInput');
 var paletteList = document.getElementById('paletteList');
 var paletteItems = [
   { cmd: 'vitrine', hint: 'remonter à l\'entrée', go: function () { scrollToId('vitrine'); } },
-  { cmd: 'étages', hint: 'aller aux catégories', go: function () { scrollToId('etages'); } },
+  { cmd: 'rayons', hint: 'aller aux catégories', go: function () { scrollToId('etages'); } },
   { cmd: 'comptoir', hint: 'voir les pièces du jour', go: function () { scrollToId('comptoir'); } },
-  { cmd: 'commander', hint: 'panier + formulaire', go: function () { scrollToId('commander'); } },
-  { cmd: 'effacer le plateau', hint: 'tout retirer', go: function () { cart = []; saveCart(); renderCart(); closePalette(); } },
+  { cmd: 'commander', hint: 'plateau + formulaire', go: function () { scrollToId('commander'); } },
+  { cmd: 'vider le plateau', hint: 'tout retirer', go: function () { cart = []; saveCart(); renderCart(); closePalette(); } },
   { cmd: 'fermer', hint: 'quitter cette fenêtre', go: function () { closePalette(); } }
 ];
 

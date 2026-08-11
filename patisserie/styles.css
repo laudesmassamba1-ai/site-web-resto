@@ -1,692 +1,482 @@
 /* ============================================================
-   L'ÉCLAIR — pâtisserie fine
-   Design system : LIQUID GLASS & SPATIAL REFRACTION
-   - Lames de verre posées sur un substrat graphique
-   - Réfraction (SVG feDisplacementMap) sur les posters
-   - Dispersion chromatique sur les arêtes (frange RGB)
-   - Reflet spéculaire, ombre caustique, fluidité tactile
-   La grille Müller-Brockmann (12 col) reste sous le capot.
+   L'ÉCLAIR — pâtisserie de quartier
+   Verre allégé : un voile léger sur la barre, le plateau et le
+   menu rapide. Le reste est papier, vraies photos, l'essentiel.
+   Perf : pas de filtres SVG, pas de mix-blend, pas de parallaxe.
    ============================================================ */
 
-/* ---------- 1. SOURCE DE VÉRITÉ UNIQUE ---------- */
-:root {
-  /* --- grille (famille, identique aux autres sites) --- */
-  --cols: 12;
-  --bl: 8px;
-  --lh: 24px;
-  --gutter: 24px;
-  --margin: 72px;
-  --pad: 96px;
-  --maxw: 1296px;
-
-  /* --- verre --- */
-  --glass-thickness: 1.5px;
-  --glass-surface-bg: rgba(255, 255, 255, 0.10);
-  --glass-blur: 18px;
-  --glass-saturation: 175%;
-  --glass-radius: 26px;
-  --glass-specular-top: rgba(255, 255, 255, 0.85);
-  --glass-specular-bottom: rgba(255, 255, 255, 0.08);
-  --glass-edge-high: rgba(255, 255, 255, 0.65);
-  --glass-edge-low: rgba(255, 255, 255, 0.12);
-  --glass-caustic: 0 30px 60px -18px rgba(80, 40, 18, 0.38),
-                   0 14px 24px -10px rgba(80, 40, 18, 0.20),
-                   0 0 0 1px rgba(255, 255, 255, 0.35);
-  --glass-caustic-lg: 0 40px 80px -20px rgba(80, 40, 18, 0.42),
-                      0 18px 30px -12px rgba(80, 40, 18, 0.22),
-                      0 0 0 1px rgba(255, 255, 255, 0.35);
-  --glass-fringe-red: rgba(238, 66, 110, 0.40);
-  --glass-fringe-cyan: rgba(0, 180, 255, 0.35);
-  --glass-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-  /* --- matière --- */
-  --bg-base: #fdf3e3;
-  --ink: #2b1f17;
-  --soft: #7a6355;
-  --cream: #fff6ea;
-  --amber: #f7b955;
-  --pink: #f48fb1;
-  --mint: #9ed8bd;
-  --raspberry: #ef5b7c;
-  --cocoa: #4a2c15;
-
-  /* --- typos --- */
-  --disp: 'Archivo Black', 'Arial Black', sans-serif;
-  --mono: 'Space Mono', monospace;
-
-  /* --- overlay de grille (dev) --- */
-  --g-col: rgba(0, 180, 255, 0.10);
-  --g-edge: rgba(0, 180, 255, 0.55);
-  --g-base: rgba(238, 66, 110, 0.30);
-  --g-base-min: rgba(238, 66, 110, 0.12);
-}
-
-/* ---------- 2. POLICES ---------- */
 @font-face { font-family: 'Archivo Black'; font-style: normal; font-weight: 400; font-display: swap; src: url('../boutique/assets/fonts/archivo-400-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('../boutique/assets/fonts/space-400-normal.woff2') format('woff2'); }
 @font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('../boutique/assets/fonts/space-700-normal.woff2') format('woff2'); }
 
-* { box-sizing: border-box; }
+:root {
+  --ink: #35241a;
+  --ink-soft: #7a6352;
+  --cream: #faf5ec;
+  --paper: #fffdf8;
+  --accent: #c2452e;
+  --accent-dark: #a1361f;
+  --accent-soft: #f7e3d6;
+  --line: #e9dcc9;
+  --disp: "Archivo Black", "Arial Black", sans-serif;
+  --mono: "Space Mono", ui-monospace, "Courier New", monospace;
+  --serif: Georgia, "Times New Roman", serif;
 
+  --cols: 12;
+  --gutter: 24px;
+  --margin: 72px;
+  --maxw: 1296px;
+  --pad: 96px;
+
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(53, 36, 26, 0.05), 0 10px 28px rgba(53, 36, 26, 0.09);
+  --shadow-lg: 0 2px 4px rgba(53, 36, 26, 0.06), 0 18px 44px rgba(53, 36, 26, 0.14);
+}
+
+* { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  background: var(--cream);
   color: var(--ink);
-  font-family: var(--mono);
-  font-size: 14px;
-  line-height: var(--lh);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  /* substrat de la page : dégradés + trame de points */
-  background-color: var(--bg-base);
-  background-image:
-    radial-gradient(circle at 16% 10%, rgba(239, 91, 124, 0.22), transparent 34%),
-    radial-gradient(circle at 84% 24%, rgba(247, 185, 85, 0.30), transparent 36%),
-    radial-gradient(circle at 52% 84%, rgba(158, 216, 189, 0.26), transparent 32%),
-    radial-gradient(rgba(120, 72, 34, 0.10) 1.4px, transparent 1.4px);
-  background-size: auto, auto, auto, 26px 26px;
-  background-position: 0 0, 0 0, 0 0, 0 0;
 }
+
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { margin: 0; }
 
 .mono { font-family: var(--mono); }
-.disp { font-family: var(--disp); }
-
-img, svg { display: block; }
-
-button { font-family: inherit; }
-
-::selection { background: var(--pink); color: #fff; }
-
-.svg-filters { position: absolute; width: 0; height: 0; }
+.stack { display: flex; flex-direction: column; gap: 20px; }
 
 /* ============================================================
-   3. LA LAME DE VERRE — composant unique
+   1. GRILLE 12 colonnes — famille Müller-Brockmann
    ============================================================ */
-.glass {
-  position: relative;
-  border-radius: var(--glass-radius);
-  border: var(--glass-thickness) solid var(--glass-edge-high);
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.16) 100%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  box-shadow: var(--glass-caustic), inset 0 1px 0 var(--glass-edge-high), inset 0 -1px 0 var(--glass-edge-low);
-  overflow: hidden;
-  transform: translateZ(0);
-  isolation: isolate;
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--pad) var(--margin);
 }
-/* reflet spéculaire : bande claire en haut, assombrie en bas */
-.glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  border-radius: inherit;
-  background: linear-gradient(180deg, var(--glass-specular-top) 0%, transparent 16%, transparent 84%, var(--glass-specular-bottom) 100%);
-  pointer-events: none;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  column-gap: var(--gutter);
+  row-gap: 24px;
 }
-/* dispersion chromatique : double arête rouge/cyan */
-.glass::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  border-radius: inherit;
-  border: 1px solid var(--glass-fringe-red);
-  box-shadow: inset 1px 1px 0 0 var(--glass-fringe-cyan), inset -1px -1px 0 0 var(--glass-fringe-red);
-  opacity: 0.55;
-  mix-blend-mode: screen;
-  pointer-events: none;
+.band {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  gap: inherit;
 }
 
-/* verres teintés (statistiques) */
-.chip-amber { background: linear-gradient(160deg, rgba(255, 214, 140, 0.55), rgba(255, 214, 140, 0.16)); }
-.chip-pink { background: linear-gradient(160deg, rgba(255, 170, 195, 0.50), rgba(255, 170, 195, 0.15)); }
-.chip-mint { background: linear-gradient(160deg, rgba(160, 225, 195, 0.50), rgba(160, 225, 195, 0.15)); }
-
-.stat { display: flex; flex-direction: column; gap: 10px; padding: 26px 24px; }
-.stat-num { margin: 0; font-family: var(--disp); font-weight: 900; font-size: 44px; line-height: 44px; letter-spacing: -0.02em; }
-.label { margin: 0; font-size: 11px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--ink); }
-
-/* barre de masthead — verre collant */
-.glass-bar {
-  background: rgba(255, 248, 238, 0.55);
-  -webkit-backdrop-filter: blur(22px) saturate(160%);
-  backdrop-filter: blur(22px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 1px 0 rgba(120, 60, 30, 0.08);
+/* repères de développement */
+.guides { pointer-events: none; position: absolute; inset: 0; opacity: 0; }
+.guides .cols {
+  position: absolute; inset: 0;
+  margin: 0 auto; max-width: var(--maxw);
+  background: repeating-linear-gradient(90deg, transparent 0 calc(var(--margin) - 1px), rgba(194, 69, 46, 0.18) calc(var(--margin) - 1px) var(--margin), transparent var(--margin) calc(100% - var(--margin)), rgba(194, 69, 46, 0.18) calc(100% - var(--margin)) calc(100% - var(--margin) + 1px));
 }
+.guides .rows { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 calc(var(--pad) - 1px), rgba(53, 36, 26, 0.08) calc(var(--pad) - 1px) var(--pad), transparent var(--pad) calc(100% - var(--pad)), rgba(53, 36, 26, 0.08) calc(100% - var(--pad)) calc(100% - var(--pad) + 1px)); }
 
 /* ============================================================
-   4. GRANDE LAME DE LA VITRINE (hero)
+   2. TYPOGRAPHIE
    ============================================================ */
-.hero-slab {
-  padding: 48px;
-  min-height: 520px;
-  box-shadow: var(--glass-caustic-lg), inset 0 1px 0 var(--glass-edge-high), inset 0 -1px 0 var(--glass-edge-low);
+.folio {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
 }
-.hero-band { position: relative; }
-.hero-slab .hero-copy { z-index: 2; }
-
-.hero-substrate {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  border-radius: calc(var(--glass-radius) + 8px);
-  filter: url(#liquid);
+.kicker {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
 }
-.hero-substrate .s-pastry { position: absolute; width: 150px; height: 150px; opacity: 0.55; }
-.hero-substrate .p1 { left: 6%; top: 8%; transform: rotate(-12deg); }
-.hero-substrate .p2 { right: 4%; top: 46%; transform: rotate(9deg); width: 130px; height: 130px; }
-.hero-substrate .p3 { left: 30%; bottom: -4%; transform: rotate(4deg); opacity: 0.45; }
-.hero-substrate .s-dot {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.9), rgba(239, 91, 124, 0.7));
-  opacity: 0.5;
+.masthead {
+  font-family: var(--disp);
+  font-size: clamp(3rem, 6.5vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
 }
-.hero-substrate .s1 { width: 34px; height: 34px; right: 22%; top: 12%; }
-.hero-substrate .s2 { width: 16px; height: 16px; left: 20%; bottom: 22%; background: radial-gradient(circle at 35% 30%, #fff, rgba(247, 185, 85, 0.85)); }
-.hero-substrate .s3 { width: 22px; height: 22px; right: 34%; bottom: 30%; background: radial-gradient(circle at 35% 30%, #fff, rgba(158, 216, 189, 0.9)); }
-.hero-substrate .s4 { width: 10px; height: 10px; left: 46%; top: 18%; opacity: 0.7; }
+.shead-title {
+  font-family: var(--disp);
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+.lede {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #5a4636;
+  max-width: 52ch;
+}
+.hours {
+  margin: 4px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.menu-note { margin: 0; font-size: 12px; line-height: 1.7; color: var(--ink-soft); }
 
 /* ============================================================
-   5. BARRE DE MASTHEAD (sticky)
+   3. BARRE DU HAUT — le voile de verre léger
    ============================================================ */
 .masthead-bar {
   position: sticky;
   top: 0;
-  z-index: 120;
-  display: grid;
-  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-  column-gap: var(--gutter);
+  z-index: 40;
+  display: flex;
   align-items: center;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 12px var(--margin);
-  border-radius: 0 0 18px 18px;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 14px var(--margin);
+  background: rgba(250, 245, 236, 0.82);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  border-bottom: 1px solid var(--line);
 }
-.brand { grid-column: 1 / 7; display: flex; align-items: center; gap: 14px; }
-.brand-mark {
-  width: 40px; height: 40px;
-  display: grid; place-items: center;
-  border-radius: 50%;
-  font-size: 18px;
-  line-height: 1;
-  color: #fff;
-  background: radial-gradient(circle at 30% 25%, #ff9db8, var(--raspberry));
-  box-shadow: 0 6px 14px -4px rgba(239, 91, 124, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-.brand-name { margin: 0; font-family: var(--disp); font-size: 18px; line-height: 24px; letter-spacing: 0.01em; }
-.brand-tag { display: block; font-weight: 400; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); }
-
-.topnav { grid-column: 8 / 13; display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; }
-.topnav a {
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  line-height: 24px;
-  padding: 4px 14px;
-  border-radius: 999px;
-  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-}
-.topnav a:hover {
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 4px 12px -6px rgba(80, 40, 18, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-}
-.topnav .nav-cta {
-  background: linear-gradient(160deg, rgba(255, 205, 150, 0.7), rgba(255, 180, 120, 0.4));
-  box-shadow: 0 6px 14px -6px rgba(150, 90, 30, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  line-height: 22px;
-}
-.cart-count {
-  display: inline-block;
-  min-width: 22px;
-  text-align: center;
-  background: var(--raspberry);
-  color: #fff;
-  border-radius: 50%;
-  padding: 0 5px;
-  margin-left: 6px;
-  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
-}
-.cart-count:empty { display: none; }
-
-/* ============================================================
-   6. GRILLE + TYPO
-   ============================================================ */
-.spread { position: relative; width: 100%; }
-.wrap { position: relative; max-width: var(--maxw); margin: 0 auto; padding: var(--pad) var(--margin); }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-  column-gap: var(--gutter);
-  row-gap: var(--lh);
-}
-
-.band {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: subgrid;
-  column-gap: var(--gutter);
-  row-gap: var(--lh);
-  align-items: start;
-}
-@supports not (grid-template-columns: subgrid) {
-  .band { grid-template-columns: repeat(var(--cols), 1fr); }
-}
-
-.guides { position: absolute; inset: 0; pointer-events: none; z-index: 60; opacity: 0; }
-.guides .cols {
-  position: absolute;
-  top: 0; bottom: 0;
-  left: var(--margin); right: var(--margin);
-  display: grid;
-  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-  column-gap: var(--gutter);
-}
-.guides .col { background: var(--g-col); box-shadow: inset 1px 0 0 var(--g-edge), inset -1px 0 0 var(--g-edge); }
-.guides .rows {
-  position: absolute;
-  left: var(--margin); right: var(--margin);
-  top: var(--pad); bottom: 0;
-  background-image:
-    repeating-linear-gradient(to bottom, var(--g-base) 0 1px, transparent 1px var(--lh)),
-    repeating-linear-gradient(to bottom, var(--g-base-min) 0 1px, transparent 1px var(--bl));
-}
-.guides .mline { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--g-edge); }
-.guides .mline.l { left: var(--margin); }
-.guides .mline.r { right: var(--margin); }
-
-.folio {
-  margin: 0;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--soft);
-  box-shadow: inset 0 2px 0 var(--cocoa);
-  padding-top: 16px;
-}
-
-.kicker {
-  margin: 0;
-  display: inline-block;
-  width: fit-content;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: linear-gradient(160deg, rgba(255, 222, 160, 0.75), rgba(255, 205, 130, 0.35));
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 12px -6px rgba(150, 90, 30, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
-.masthead {
+.brand-name {
   margin: 0;
   font-family: var(--disp);
-  font-size: clamp(2.6rem, 6.4vw, 5.2rem);
-  line-height: 88px;
+  font-size: 20px;
   letter-spacing: -0.01em;
 }
-
-.lede { margin: 0; color: var(--soft); }
-
-.shead-title {
-  margin: 0;
-  font-family: var(--disp);
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-  line-height: 56px;
+.brand-tag {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 400;
 }
-
-.menu-note { margin: 0; font-size: 11px; line-height: 24px; color: var(--soft); }
-
-.stack { display: flex; flex-direction: column; gap: var(--lh); }
-
-/* photo / poster du paris-brest */
-.hero-photo {
-  margin: 0;
-  align-self: start;
-  border-radius: var(--glass-radius);
-  background: linear-gradient(180deg, #ffe9db, #fff6ea);
-  box-shadow: var(--glass-caustic-lg);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  padding: 18px;
-}
-.hero-photo svg { width: 100%; height: auto; }
-.hero-photo figcaption { margin: 14px 0 0 0; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); line-height: 24px; }
-
-/* ============================================================
-   7. CARTES — poster (substrat) sous une bande de verre
-   ============================================================ */
-.pat-card, .categ-card {
-  position: relative;
-  border-radius: var(--glass-radius);
-  box-shadow: var(--glass-caustic);
-  overflow: hidden;
-  isolation: isolate;
-  background: linear-gradient(180deg, #ffe9db, #fff6ea);
-  color: var(--ink);
-  text-decoration: none;
-  display: block;
-  transition: transform 0.35s var(--glass-spring), box-shadow 0.35s ease;
-}
-.pat-card:hover, .categ-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--glass-caustic-lg);
-}
-
-/* le poster : illustration posée dans la vitrine, légèrement réfractée */
-.poster {
-  position: relative;
-  display: grid;
-  place-items: center;
-  padding: 48px 24px 150px;
-  min-height: 400px;
-}
-.categ-card .poster { min-height: 360px; }
-.poster svg {
-  width: 220px;
-  height: 220px;
-  filter: url(#liquid-soft);
-  transform: translate(calc(var(--gx, 0) * 7px), calc(var(--gy, 0) * 7px));
-  transition: transform 0.35s var(--glass-spring);
-}
-.categ-card .poster svg { width: 190px; height: 190px; }
-.pat-card:hover .poster svg, .categ-card:hover .poster svg {
-  transform: translate(calc(var(--gx, 0) * 10px), calc(var(--gy, 0) * 10px)) scale(1.07) rotate(-2deg);
-}
-
-/* la bande de verre qui pose sur le poster */
-.glass-info {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  padding: 16px 18px;
-  border-radius: 18px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.12));
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  border: var(--glass-thickness) solid rgba(255, 255, 255, 0.55);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 rgba(255, 255, 255, 0.12), 0 12px 26px -14px rgba(60, 20, 10, 0.4);
-  overflow: hidden;
-  isolation: isolate;
-  transition: bottom 0.3s var(--glass-spring), box-shadow 0.3s ease;
-}
-.glass-info::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, transparent 32%, transparent 66%, rgba(255, 255, 255, 0.12) 100%);
-  pointer-events: none;
-}
-.glass-info::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1px solid var(--glass-fringe-red);
-  box-shadow: inset 1px 1px 0 0 var(--glass-fringe-cyan), inset -1px -1px 0 0 var(--glass-fringe-red);
-  opacity: 0.5;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-.glass-info > * { position: relative; z-index: 1; }
-
-.tag { margin: 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); line-height: 24px; }
-.pname { margin: 0; font-family: var(--disp); font-size: 18px; line-height: 24px; }
-.cname { margin: 0; font-family: var(--disp); font-size: 22px; line-height: 24px; }
-
-.item { align-self: start; }
-
-.prow {
+.topnav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 8px;
-}
-.price { margin: 0; font-size: 16px; line-height: 24px; font-weight: 700; }
-
-/* ============================================================
-   8. BOUTONS — billes de verre tactiles
-   ============================================================ */
-.btn {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 214, 150, 0.30));
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 0 8px 18px -8px rgba(90, 40, 20, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border-radius: 999px;
-  color: var(--ink);
-  cursor: pointer;
-  font-size: 11px;
-  line-height: 22px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 1px 16px;
-  transition: transform 0.25s var(--glass-spring), box-shadow 0.25s ease, background 0.25s ease;
-}
-.btn:hover {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 12px 24px -10px rgba(90, 40, 20, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.75), rgba(255, 214, 150, 0.45));
-}
-.btn:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: 0 3px 8px -4px rgba(90, 40, 20, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-.add { line-height: 24px; }
-.btn-submit { padding: 9px 22px; font-size: 12px; line-height: 24px; }
-
-/* ============================================================
-   9. COMMANDE — panier + formulaire
-   ============================================================ */
-.cart { align-self: start; padding: 18px; }
-.cart-head {
+  gap: 20px;
   font-size: 13px;
-  line-height: 24px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  display: inline-block;
-  padding: 0 14px;
+  letter-spacing: 0.06em;
+}
+.topnav a { color: var(--ink); text-decoration: none; }
+.topnav a:not(.nav-cta):hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 9px 16px;
   border-radius: 999px;
-  background: linear-gradient(160deg, rgba(255, 214, 140, 0.7), rgba(255, 205, 130, 0.4));
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s ease;
 }
-.cart-body { padding: 8px 2px 2px; }
-.cart-items { list-style: none; margin: 0; padding: 0; }
-.cart-items li {
+.nav-cta:hover { background: var(--accent-dark); }
+.cart-count {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--accent);
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* ============================================================
+   4. VITRINE — héro
+   ============================================================ */
+.hero-slab {
+  padding: 48px;
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, #f3e5d0, #fdf8ee);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.hero-photo {
+  margin: 0;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-photo figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.88);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+/* statistiques */
+.stat {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.stat-num {
+  font-family: var(--disp);
+  font-size: 40px;
+  line-height: 1;
+}
+.label { margin: 0; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* ============================================================
+   5. RAYONS — cartes catégories
+   ============================================================ */
+.categ-card {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.categ-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.cimg { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.cinfo {
+  display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  gap: 16px;
-  font-size: 12px;
-  line-height: 24px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(120, 72, 34, 0.18);
+  gap: 12px;
+  padding: 14px 18px 16px;
 }
-.cart-items .cart-empty { color: var(--soft); }
-.cart-items .qty { color: var(--soft); }
-.cart-items .remove {
-  background: none;
+.cname { font-family: var(--disp); font-size: 19px; }
+.tag { margin: 0; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+
+/* ============================================================
+   6. COMPTOIR — pièces du jour
+   ============================================================ */
+.pat-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.pat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.pimg { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.pinfo { display: flex; flex-direction: column; gap: 6px; padding: 14px 18px 16px; flex: 1; }
+.pname { font-family: var(--serif); font-size: 19px; font-weight: 700; line-height: 1.25; }
+.prow { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 8px; }
+.price { margin: 0; font-size: 15px; font-weight: 700; color: var(--accent-dark); }
+.add {
   border: none;
-  color: var(--raspberry);
-  cursor: pointer;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--mono);
   font-size: 12px;
-  line-height: 24px;
-  padding: 0 0 0 8px;
-  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
+.add:hover { background: var(--accent-dark); }
+
+/* ============================================================
+   7. COMMANDE — plateau (verre léger) + formulaire
+   ============================================================ */
+.cart {
+  padding: 24px;
+  border-radius: var(--radius);
+  background: rgba(255, 253, 248, 0.72);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  backdrop-filter: blur(10px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+}
+.cart-head { margin: 0 0 10px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.cart-items { list-style: none; margin: 0; padding: 0; }
+.cart-items li { display: flex; justify-content: space-between; gap: 14px; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+.cart-items li:first-child { border-top: 1px dashed var(--line); }
+.cart-empty { color: var(--ink-soft); }
+.cart-items .qty { color: var(--accent-dark); font-weight: 700; }
+.remove {
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 13px;
+  margin-left: 10px;
+  padding: 0;
+}
+.remove:hover { color: var(--accent); }
 .cart-total {
   display: flex;
   justify-content: space-between;
-  font-size: 16px;
-  line-height: 24px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
   font-weight: 700;
-  padding-top: 10px;
+  font-size: 15px;
 }
 
 .order-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  align-self: start;
-  padding: 26px;
-  border-radius: var(--glass-radius);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.10));
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  border: var(--glass-thickness) solid rgba(255, 255, 255, 0.55);
-  box-shadow: var(--glass-caustic), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  overflow: hidden;
-  isolation: isolate;
+  padding: 32px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.order-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--soft);
-  font-weight: 700;
-}
+.order-form label { display: flex; flex-direction: column; gap: 6px; font-size: 15px; font-weight: 700; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; min-width: 0; }
+.form-row label { min-width: 0; }
 .order-form input,
 .order-form select {
-  font-family: inherit;
-  font-size: 13px;
-  line-height: 24px;
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  font-weight: 400;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  padding: 8px 12px;
-  text-transform: none;
-  letter-spacing: normal;
-  box-shadow: inset 0 1px 0 rgba(120, 72, 34, 0.08);
-  transition: box-shadow 0.15s ease, transform 0.25s var(--glass-spring);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .order-form input:focus,
 .order-form select:focus {
   outline: none;
-  transform: translateY(-1px);
-  box-shadow: inset 0 1px 0 rgba(120, 72, 34, 0.08), 0 0 0 3px rgba(239, 91, 124, 0.25);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
-.form-status { margin: 0; font-size: 12px; line-height: 24px; color: var(--ink); font-weight: 700; min-height: 24px; }
+.btn-submit {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn-submit:hover { background: var(--accent-dark); }
+.form-status { margin: 0; font-size: 13px; min-height: 20px; }
 
 /* ============================================================
-   10. FOOTER — verre sombre
+   8. PIED DE PAGE
    ============================================================ */
-.footer {
-  background: linear-gradient(180deg, rgba(43, 31, 23, 0.88), rgba(43, 31, 23, 0.94));
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  color: var(--cream);
-}
+.footer { border-top: 1px solid var(--line); background: #f3e9d6; }
 .footer-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 16px var(--margin);
+  padding: 26px var(--margin);
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
+  gap: 14px 28px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
 }
-.footer p { margin: 0; font-size: 11px; line-height: 24px; letter-spacing: 0.06em; color: rgba(253, 243, 227, 0.75); }
-.fake {
-  display: inline-block;
-  border: 1px solid rgba(253, 243, 227, 0.5);
-  border-radius: 999px;
-  padding: 0 10px;
-  font-size: 10px;
-  line-height: 20px;
-  color: var(--amber);
-  vertical-align: baseline;
+.footer p { margin: 0; }
+kbd.fake {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 2px 7px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: #fff;
 }
 
 /* ============================================================
-   11. MENU RAPIDE (Ctrl+K)
+   9. MENU RAPIDE (Ctrl+K) — voile de verre léger
    ============================================================ */
 .palette {
   position: fixed;
   inset: 0;
-  z-index: 400;
-  display: grid;
-  place-items: start center;
-  padding-top: 14vh;
-  background: rgba(43, 31, 23, 0.35);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 24px 24px;
+  background: rgba(53, 36, 26, 0.4);
 }
 .palette[hidden] { display: none; }
 .palette-frame {
-  width: min(600px, calc(100vw - 32px));
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 246, 234, 0.25));
-  -webkit-backdrop-filter: blur(28px) saturate(175%);
-  backdrop-filter: blur(28px) saturate(175%);
-  border: var(--glass-thickness) solid rgba(255, 255, 255, 0.6);
-  border-radius: var(--glass-radius);
-  box-shadow: var(--glass-caustic-lg);
+  width: min(540px, 100%);
+  border-radius: 16px;
   overflow: hidden;
+  background: rgba(255, 253, 248, 0.9);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 24px 60px rgba(53, 36, 26, 0.28);
 }
-.palette-head { padding: 14px 18px; font-size: 13px; font-weight: 700; border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+.palette-head { padding: 14px 18px 6px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
 .palette-input {
   width: 100%;
   border: none;
-  background: transparent;
+  background: none;
+  padding: 6px 18px 12px;
+  font: inherit;
+  font-size: 16px;
   color: var(--ink);
-  font-family: inherit;
-  font-size: 13px;
-  line-height: 24px;
-  padding: 14px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid var(--line);
+  outline: none;
 }
-.palette-input:focus { outline: none; }
-.palette-list { list-style: none; margin: 0; padding: 8px 0; max-height: 45vh; overflow: auto; }
+.palette-list { list-style: none; margin: 0; padding: 8px; }
 .palette-list li {
   display: flex;
-  gap: 16px;
   justify-content: space-between;
-  padding: 6px 18px;
-  font-size: 12px;
-  line-height: 24px;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  font-size: 14px;
   cursor: pointer;
 }
-.palette-list li .pcmd { color: var(--soft); }
-.palette-list li.sel { background: rgba(239, 91, 124, 0.16); color: #000; box-shadow: inset 0 0 0 1px rgba(239, 91, 124, 0.25); }
-.palette-list li.sel .pcmd { color: var(--ink); }
-.palette-hint { margin: 0; padding: 10px 18px; font-size: 10px; line-height: 16px; color: var(--soft); border-top: 1px solid rgba(255, 255, 255, 0.4); }
+.palette-list li.sel { background: var(--accent-soft); }
+.palette-list .pcmd { color: var(--ink-soft); }
+.palette-hint { margin: 0; padding: 10px 18px; font-size: 11px; color: var(--ink-soft); border-top: 1px solid var(--line); }
 
 /* ============================================================
-   12. RESPONSIVE
+   10. RESPONSIVE
    ============================================================ */
 @media (max-width: 1000px) {
   :root { --margin: 24px; --pad: 64px; }
-  .wrap { padding: var(--pad) var(--margin); }
-  .masthead { line-height: 72px; }
-  .shead-title { line-height: 48px; }
+  .masthead-bar { padding: 14px 24px; }
+  .hero-slab { padding: 36px; }
 }
-
 @media (max-width: 720px) {
   :root { --margin: 16px; --pad: 48px; }
-  .masthead { font-size: 2.4rem; line-height: 56px; }
-  .shead-title { line-height: 40px; }
-  .brand { grid-column: 1 / 13; }
-  .topnav { grid-column: 1 / 13; justify-content: flex-start; }
-  .hero-slab { grid-column: 1 / 13 !important; padding: 28px; min-height: 0; }
-  .hero-photo { grid-column: 1 / 13 !important; }
+  .masthead-bar { padding: 12px 16px; }
+  .topnav { gap: 12px; font-size: 12px; }
+  .hero-slab { grid-column: 1 / 13 !important; padding: 28px; }
+  .hero-photo { grid-column: 1 / 13 !important; min-height: 260px; }
   .stats .stat { grid-column: 1 / 13 !important; }
   .categ-card { grid-column: 1 / 7 !important; }
   .catband .item { grid-column: 1 / 7 !important; }
@@ -694,10 +484,10 @@ button { font-family: inherit; }
   .order-form { grid-column: 1 / 13 !important; }
   .form-row { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; gap: 4px; }
+  .masthead { line-height: 1; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .pat-card, .categ-card, .btn, .glass-info, .order-form input { transition: none; }
-  .pat-card:hover .poster svg, .categ-card:hover .poster svg { transform: none; }
+  .categ-card, .pat-card, .add, .btn-submit, .order-form input { transition: none; }
+  .categ-card:hover, .pat-card:hover { transform: none; }
 }
