@@ -4,23 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LE BAZAR — objets de tout genre</title>
-  <meta name="description" content="Le grand bazar : 84 références, des objets de tout genre, en stock, envoyés sous 48 h." />
+  <meta name="description" content="Le grand bazar : 12 objets bien choisis, de tout genre, en stock, envoyés sous 48 h." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div class="crt" aria-hidden="true"></div>
-
   <header class="masthead-bar">
     <div class="brand">
-      <span class="brand-mark mono" aria-hidden="true">▮</span>
-      <p class="brand-name">LE BAZAR <span class="brand-tag mono">boutique générale · depuis 1986</span></p>
+      <span class="brand-mark" aria-hidden="true">■</span>
+      <p class="brand-name">LE BAZAR <span class="brand-tag mono">boutique générale</span></p>
     </div>
     <nav class="topnav mono" aria-label="Navigation principale">
       <a href="#accueil">Accueil</a>
-      <a href="#categories">Rayonnages</a>
+      <a href="#categories">Rayons</a>
       <a href="#catalogue">Catalogue</a>
-      <a href="#commander" class="nav-cta">Commander <span class="cart-count" id="cartCount" aria-live="polite">0</span></a>
+      <a href="#commander" class="nav-cta">Panier <span class="cart-count" id="cartCount" aria-live="polite">0</span></a>
     </nav>
   </header>
 
@@ -36,37 +34,26 @@
           <div class="band hero-band">
             <div class="hero-copy stack" style="grid-column:1 / 7;">
               <p class="kicker mono">Objets de tout genre, sous un même toit</p>
-              <h1 class="masthead">Tout.<br />Sans exception.</h1>
-              <p class="lede body">Un comptoir, un rayonnage, une caissière. On vend ce qu'on aurait aimé trouver : des choses utiles, solides, jolies — pour la maison, la cuisine, le bureau et les mains.</p>
+              <h1 class="masthead">TOUT.<br />SANS&nbsp;EXCEPTION.</h1>
+              <p class="lede">Des choses utiles, solides, jolies — pour la maison, la technique, la mode et le bureau. Comptées à la main, envoyées sous 48&nbsp;h.</p>
             </div>
-            <div class="terminal-frame" style="grid-column:8 / 13;">
-              <div class="window-header">
-                <div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div>
-                <div class="window-title mono">bazar@maison:~/rayon</div>
-              </div>
-              <pre class="terminal-body mono"><span class="t-prompt">bazar@maison:~/rayon$</span> ls
-catalogue/  comptoir/  promos/  rayonnage/
-<span class="t-prompt">bazar@maison:~/rayon$</span> cat special.md
-<span class="t-cmd">── objets de tout genre ──────────</span>
- 84 références en rayon
- 0 rupture de stock (vérifié)
- 48 h pour arriver chez toi
- 3× sans frais à la caisse
-<span class="t-prompt">bazar@maison:~/rayon$</span> <span class="t-caret">▮</span></pre>
-            </div>
+            <figure class="hero-photo" style="grid-column:8 / 13;">
+              <img src="assets/img/hero.jpg" alt="Une paire de baskets" />
+              <figcaption class="mono">le rayon « les pieds » — photo BA</figcaption>
+            </figure>
           </div>
           <div class="band stats">
-            <div class="stat" style="grid-column:1 / 5;">
-              <p class="stat-num mono">84</p>
-              <p class="label mono">références au catalogue</p>
+            <div class="stat chip chip-yellow" style="grid-column:1 / 5;">
+              <p class="stat-num">12</p>
+              <p class="label mono">références en rayon</p>
             </div>
-            <div class="stat" style="grid-column:5 / 9;">
-              <p class="stat-num mono">48 h</p>
-              <p class="label mono">de la commande à la porte</p>
+            <div class="stat chip chip-green" style="grid-column:5 / 9;">
+              <p class="stat-num">48&nbsp;h</p>
+              <p class="label mono">commande → porte</p>
             </div>
-            <div class="stat" style="grid-column:9 / 13;">
-              <p class="stat-num mono">3×</p>
-              <p class="label mono">paiement sans frais</p>
+            <div class="stat chip chip-cyan" style="grid-column:9 / 13;">
+              <p class="stat-num">3×</p>
+              <p class="label mono">sans frais</p>
             </div>
           </div>
         </div>
@@ -74,38 +61,46 @@ catalogue/  comptoir/  promos/  rayonnage/
       </div>
     </section>
 
-    <!-- ================= Nº 02 — RAYONNAGES ================= -->
+    <!-- ================= Nº 02 — RAYONS ================= -->
     <section class="spread" id="categories">
       <div class="wrap">
         <div class="grid">
           <div class="band">
-            <p class="folio mono" style="grid-column:1 / 13;">Nº 02 — Le rayonnage</p>
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 02 — Les rayons</p>
           </div>
           <div class="band">
             <p class="kicker mono" style="grid-column:1 / 13;">Quatre étagères, tout le reste</p>
-            <h2 class="shead-title" style="grid-column:1 / 10;">Des rayons clairs, des prix écrits au feutre, rien de caché sous le tapis.</h2>
-            <p class="mono menu-note" style="grid-column:10 / 13;">Clique sur un rayon pour sauter au catalogue.</p>
+            <h2 class="shead-title" style="grid-column:1 / 10;">Chaque rayon tient debout tout seul. Clique, on t'emmène.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">Tout est en stock. Compté à la caisse.</p>
           </div>
           <div class="band categ-band">
-            <a class="categ-card window-frame" href="#catalogue" data-cat="Maison" data-pix="LAMP" data-color="#f0883e" style="grid-column:1 / 4;">
-              <div class="categ-pix pix" aria-hidden="true"></div>
-              <p class="cname mono">Maison</p>
-              <p class="cdesc mono">12 objets pour l'intérieur</p>
+            <a class="categ-card card" href="#catalogue" style="grid-column:1 / 4;">
+              <div class="card-media"><img src="assets/img/prod-01.jpg" alt="Rayon technique" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">03 articles</p>
+                <p class="cname">TECH</p>
+              </div>
             </a>
-            <a class="categ-card window-frame" href="#catalogue" data-cat="Cuisine" data-pix="CUP" data-color="#58a6ff" style="grid-column:4 / 7;">
-              <div class="categ-pix pix" aria-hidden="true"></div>
-              <p class="cname mono">Cuisine</p>
-              <p class="cdesc mono">9 ustensiles qui durent</p>
+            <a class="categ-card card" href="#catalogue" style="grid-column:4 / 7;">
+              <div class="card-media"><img src="assets/img/prod-04.jpg" alt="Rayon maison" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">03 articles</p>
+                <p class="cname">MAISON</p>
+              </div>
             </a>
-            <a class="categ-card window-frame" href="#catalogue" data-cat="Tech" data-pix="KEYB" data-color="#3fb950" style="grid-column:7 / 10;">
-              <div class="categ-pix pix" aria-hidden="true"></div>
-              <p class="cname mono">Tech</p>
-              <p class="cdesc mono">14 appareils utiles</p>
+            <a class="categ-card card" href="#catalogue" style="grid-column:7 / 10;">
+              <div class="card-media"><img src="assets/img/prod-07.jpg" alt="Rayon mode" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">03 articles</p>
+                <p class="cname">MODE</p>
+              </div>
             </a>
-            <a class="categ-card window-frame" href="#catalogue" data-cat="Papeterie" data-pix="NOTE" data-color="#bc8cff" style="grid-column:10 / 13;">
-              <div class="categ-pix pix" aria-hidden="true"></div>
-              <p class="cname mono">Papeterie</p>
-              <p class="cdesc mono">10 choses à écrire</p>
+            <a class="categ-card card" href="#catalogue" style="grid-column:10 / 13;">
+              <div class="card-media"><img src="assets/img/prod-10.jpg" alt="Rayon bureau" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">03 articles</p>
+                <p class="cname">BUREAU</p>
+              </div>
             </a>
           </div>
         </div>
@@ -122,127 +117,115 @@ catalogue/  comptoir/  promos/  rayonnage/
           </div>
           <div class="band">
             <p class="kicker mono" style="grid-column:1 / 13;">Ce qu'on a en rayon, à l'instant</p>
-            <h2 class="shead-title" style="grid-column:1 / 10;">Douze coups de cœur parmi les fidèles de la maison.</h2>
-            <p class="mono menu-note" style="grid-column:10 / 13;">En stock, compté à la caisse. Prix TTC.</p>
+            <h2 class="shead-title" style="grid-column:1 / 10;">Douze objets, photographiés au rayon.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">Photos réelles, prix TTC, colis soigné.</p>
           </div>
           <div class="band catband">
 
-            <div class="item window-frame" data-ref="BA-001" data-cat="Maison" data-pix="LAMP" data-color="#f0883e" style="grid-column:1 / 5;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-001 · Maison</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Lampe à filament</p>
-                <p class="pdesc mono">La lampe du comptoir. Chaud, câblé, solide.</p>
-                <div class="prow"><p class="price mono">39 €</p><button class="add mono" data-ref="BA-001" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-001" style="grid-column:1 / 4;">
+              <div class="card-media"><img src="assets/img/prod-01.jpg" alt="Casque audio" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Tech · BA-001</p>
+                <p class="pname">Casque audio</p>
+                <div class="prow"><p class="price mono">89 €</p><button class="add mono" data-ref="BA-001" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-002" data-cat="Cuisine" data-pix="CUP" data-color="#58a6ff" style="grid-column:5 / 9;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-002 · Cuisine</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Tasse émaillée bleue</p>
-                <p class="pdesc mono">Émail bicolore, passe au lave-vaisselle.</p>
-                <div class="prow"><p class="price mono">12 €</p><button class="add mono" data-ref="BA-002" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-002" style="grid-column:4 / 7;">
+              <div class="card-media"><img src="assets/img/prod-02.jpg" alt="Appareil photo" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Tech · BA-002</p>
+                <p class="pname">Appareil photo</p>
+                <div class="prow"><p class="price mono">249 €</p><button class="add mono" data-ref="BA-002" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-003" data-cat="Tech" data-pix="HEADSET" data-color="#3fb950" style="grid-column:9 / 13;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-003 · Tech</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Casque filaire vintage</p>
-                <p class="pdesc mono">Le câble, c'est une promesse de zéro latence.</p>
-                <div class="prow"><p class="price mono">89 €</p><button class="add mono" data-ref="BA-003" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-003" style="grid-column:7 / 10;">
+              <div class="card-media"><img src="assets/img/prod-03.jpg" alt="Clavier mécanique" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Tech · BA-003</p>
+                <p class="pname">Clavier mécanique</p>
+                <div class="prow"><p class="price mono">119 €</p><button class="add mono" data-ref="BA-003" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-004" data-cat="Papeterie" data-pix="NOTE" data-color="#bc8cff" style="grid-column:1 / 5;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-004 · Papeterie</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Carnet A5 à spirale</p>
-                <p class="pdesc mono">Papier 90 g, 96 pages, coins arrondis.</p>
-                <div class="prow"><p class="price mono">9 €</p><button class="add mono" data-ref="BA-004" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-004" style="grid-column:10 / 13;">
+              <div class="card-media"><img src="assets/img/prod-04.jpg" alt="Lampe d'atelier" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Maison · BA-004</p>
+                <p class="pname">Lampe d'atelier</p>
+                <div class="prow"><p class="price mono">59 €</p><button class="add mono" data-ref="BA-004" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-005" data-cat="Cuisine" data-pix="MEASURE" data-color="#58a6ff" style="grid-column:5 / 9;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-005 · Cuisine</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Verre mesureur gradué</p>
-                <p class="pdesc mono">Dé, cuillère, tasse : toutes les mesures.</p>
-                <div class="prow"><p class="price mono">8 €</p><button class="add mono" data-ref="BA-005" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-005" style="grid-column:1 / 4;">
+              <div class="card-media"><img src="assets/img/prod-05.jpg" alt="Plante verte" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Maison · BA-005</p>
+                <p class="pname">Plante verte</p>
+                <div class="prow"><p class="price mono">24 €</p><button class="add mono" data-ref="BA-005" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-006" data-cat="Tech" data-pix="KEYB" data-color="#3fb950" style="grid-column:9 / 13;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-006 · Tech</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Clavier mécanique</p>
-                <p class="pdesc mono">Commutateurs clicky, rétro-éclairage sobre.</p>
-                <div class="prow"><p class="price mono">119 €</p><button class="add mono" data-ref="BA-006" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-006" style="grid-column:4 / 7;">
+              <div class="card-media"><img src="assets/img/prod-06.jpg" alt="Tasse céramique" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Maison · BA-006</p>
+                <p class="pname">Tasse céramique</p>
+                <div class="prow"><p class="price mono">15 €</p><button class="add mono" data-ref="BA-006" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-007" data-cat="Maison" data-pix="TIN" data-color="#f0883e" style="grid-column:1 / 5;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-007 · Maison</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Boîte à biscuits en fer</p>
-                <p class="pdesc mono">Elle ment sur le contenu. C'est sa fonction.</p>
-                <div class="prow"><p class="price mono">16 €</p><button class="add mono" data-ref="BA-007" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-007" style="grid-column:7 / 10;">
+              <div class="card-media"><img src="assets/img/prod-07.jpg" alt="Baskets" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Mode · BA-007</p>
+                <p class="pname">Baskets</p>
+                <div class="prow"><p class="price mono">79 €</p><button class="add mono" data-ref="BA-007" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-008" data-cat="Papeterie" data-pix="RULER" data-color="#bc8cff" style="grid-column:5 / 9;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-008 · Papeterie</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Règle en laiton 30 cm</p>
-                <p class="pdesc mono">Graduations gravées, elle vieillit bien.</p>
-                <div class="prow"><p class="price mono">14 €</p><button class="add mono" data-ref="BA-008" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-008" style="grid-column:10 / 13;">
+              <div class="card-media"><img src="assets/img/prod-08.jpg" alt="Lunettes de soleil" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Mode · BA-008</p>
+                <p class="pname">Lunettes de soleil</p>
+                <div class="prow"><p class="price mono">45 €</p><button class="add mono" data-ref="BA-008" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-009" data-cat="Tech" data-pix="SPEAKER" data-color="#3fb950" style="grid-column:9 / 13;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-009 · Tech</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Enceinte de poche</p>
-                <p class="pdesc mono">Dans la poche du tablier, en fond de cuisine.</p>
-                <div class="prow"><p class="price mono">49 €</p><button class="add mono" data-ref="BA-009" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-009" style="grid-column:1 / 4;">
+              <div class="card-media"><img src="assets/img/prod-09.jpg" alt="Montre-bracelet" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Mode · BA-009</p>
+                <p class="pname">Montre-bracelet</p>
+                <div class="prow"><p class="price mono">129 €</p><button class="add mono" data-ref="BA-009" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-010" data-cat="Maison" data-pix="BAG" data-color="#f0883e" style="grid-column:1 / 5;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-010 · Maison</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Tote bag en toile</p>
-                <p class="pdesc mono">Le marché du samedi, les livres du dimanche.</p>
-                <div class="prow"><p class="price mono">18 €</p><button class="add mono" data-ref="BA-010" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-010" style="grid-column:4 / 7;">
+              <div class="card-media"><img src="assets/img/prod-10.jpg" alt="Carnet de notes" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Bureau · BA-010</p>
+                <p class="pname">Carnet de notes</p>
+                <div class="prow"><p class="price mono">12 €</p><button class="add mono" data-ref="BA-010" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-011" data-cat="Cuisine" data-pix="CUP" data-color="#58a6ff" style="grid-column:5 / 9;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-011 · Cuisine</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Roulette à découper</p>
-                <p class="pdesc mono">Pâte fine, crustacés, gratins : ligne droite.</p>
-                <div class="prow"><p class="price mono">24 €</p><button class="add mono" data-ref="BA-011" type="button">Ajouter</button></div>
+            <div class="item card" data-ref="BA-011" style="grid-column:7 / 10;">
+              <div class="card-media"><img src="assets/img/prod-11.jpg" alt="Pile de livres" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Bureau · BA-011</p>
+                <p class="pname">Pile de livres</p>
+                <div class="prow"><p class="price mono">32 €</p><button class="add mono" data-ref="BA-011" type="button">Ajouter</button></div>
               </div>
             </div>
 
-            <div class="item window-frame" data-ref="BA-012" data-cat="Papeterie" data-pix="PEN" data-color="#bc8cff" style="grid-column:9 / 13;">
-              <div class="window-header"><div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div><div class="window-title mono">BA-012 · Papeterie</div></div>
-              <div class="item-body">
-                <div class="pix" aria-hidden="true"></div>
-                <p class="pname mono">Stylo plume bordeaux</p>
-                <p class="pdesc mono">Plume fine, encre noire, écrire lentement.</p>
+            <div class="item card" data-ref="BA-012" style="grid-column:10 / 13;">
+              <div class="card-media"><img src="assets/img/prod-12.jpg" alt="Stylo plume" loading="lazy" /></div>
+              <div class="card-body">
+                <p class="tag mono">Bureau · BA-012</p>
+                <p class="pname">Stylo plume</p>
                 <div class="prow"><p class="price mono">22 €</p><button class="add mono" data-ref="BA-012" type="button">Ajouter</button></div>
               </div>
             </div>
@@ -266,14 +249,11 @@ catalogue/  comptoir/  promos/  rayonnage/
             <p class="mono menu-note" style="grid-column:10 / 13;">Ajoute des articles depuis le catalogue.</p>
           </div>
           <div class="band order-band">
-            <div class="cart window-frame" style="grid-column:1 / 6;">
-              <div class="window-header">
-                <div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div>
-                <div class="window-title mono">~/panier.txt</div>
-              </div>
+            <div class="cart card" style="grid-column:1 / 6;">
+              <div class="cart-head mono">~/panier</div>
               <div class="cart-body">
                 <ul class="cart-items mono" id="cartItems">
-                  <li class="cart-empty">le panier est vide.<br />vas faire un tour au catalogue ↗</li>
+                  <li class="cart-empty">le panier est vide.<br />fais un tour au catalogue ↗</li>
                 </ul>
                 <div class="cart-total mono"><span>Total</span><span id="cartTotal">0 €</span></div>
               </div>
@@ -293,7 +273,7 @@ catalogue/  comptoir/  promos/  rayonnage/
               <label>Message pour le rayon
                 <textarea name="message" rows="4" placeholder="Un mot sur le colis, une précision…"></textarea>
               </label>
-              <button class="btn mono" type="submit">Envoyer la commande</button>
+              <button class="btn btn-submit mono" type="submit">Envoyer la commande</button>
               <p class="form-status mono" id="orderStatus" aria-live="polite"></p>
             </form>
           </div>
@@ -307,20 +287,17 @@ catalogue/  comptoir/  promos/  rayonnage/
   <footer class="footer">
     <div class="footer-inner">
       <p class="mono">LE BAZAR — bonjour@lebazar.com</p>
-      <p class="mono">© 1986–2026 — compté à la main. <kbd class="fake">Ctrl+K</kbd> pour la palette de commandes.</p>
+      <p class="mono">© 1986–2026 — compté à la main. <kbd class="fake">Ctrl+K</kbd> pour le menu rapide.</p>
     </div>
   </footer>
 
-  <!-- ---- palette de commandes (Ctrl+K) ---- -->
-  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Palette de commandes" hidden>
-    <div class="palette-frame window-frame">
-      <div class="window-header">
-        <div class="window-controls"><span class="dot close"></span><span class="dot minimize"></span><span class="dot maximize"></span></div>
-        <div class="window-title mono">commande rapide</div>
-      </div>
+  <!-- ---- menu rapide (Ctrl+K) ---- -->
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Menu rapide" hidden>
+    <div class="palette-frame">
+      <div class="palette-head mono">menu rapide</div>
       <input class="palette-input mono" id="paletteInput" placeholder="taper une commande…" autocomplete="off" />
       <ul class="palette-list mono" id="paletteList"></ul>
-      <p class="palette-hint mono">↑↓ pour naviguer · entrée pour exécuter · échap pour fermer</p>
+      <p class="palette-hint mono">↑↓ naviguer · entrée exécuter · échap fermer</p>
     </div>
   </div>
 
