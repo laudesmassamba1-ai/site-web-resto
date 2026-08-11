@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chez Marguerite — Bistrot international</title>
+  <meta name="description" content="Chez Marguerite, bistrot international à Paris : les cuisines du monde composées chaque jour à la main. Réservez votre table." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e4002b'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-size='34' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="rough">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05 0.09" numOctaves="3" seed="4" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="roughbig">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03 0.06" numOctaves="4" seed="9" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="lgwarp">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead-bar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="54" height="54">
+          <circle cx="32" cy="32" r="29" fill="#e4002b" filter="url(#roughbig)"/>
+          <text x="32" y="43" text-anchor="middle" font-family="Caveat, cursive" font-size="34" fill="#fff">M</text>
+        </svg>
+      </span>
+      <p class="brand-name">Chez Marguerite <span class="brand-tag mono">bistrot international · paris</span></p>
+    </div>
+    <nav class="topnav" aria-label="Navigation principale">
+      <a href="#maison">La maison</a>
+      <a href="#carte">La carte</a>
+      <a href="#lieu">Le lieu</a>
+      <a href="#reserver" class="nav-cta">Réserver</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= COUVERTURE ================= -->
+    <section class="spread" id="top">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 01 — Couverture</p>
+          </div>
+          <div class="band hero-band">
+            <div class="hero-copy stack" style="grid-column:1 / 7;">
+              <p class="kicker mono">Les cuisines du monde, sous un même toit</p>
+              <h1 class="masthead">Chez Marguerite, on voyage sans quitter la table.</h1>
+              <svg class="swash" viewBox="0 0 420 34" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M8 22 C 90 8 200 34 412 12" fill="none" stroke="#e4002b" stroke-width="7" stroke-linecap="round" filter="url(#rough)"/>
+              </svg>
+              <p class="lede">Une grande salle, un comptoir en bois, et vingt-quatre cuisines qui se croisent dans l’assiette. Ici, on cuisine chaque jour à la main, avec les produits du marché et le plaisir de recevoir.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#reserver">Réserver une table</a>
+                <a class="btn btn-secondary" href="#carte">Voir la carte</a>
+              </div>
+              <p class="hand-note" aria-hidden="true">cuisine faite à la main, chaque jour →</p>
+            </div>
+            <figure class="hero-photo lg lg--a" style="grid-column:8 / 13;">
+              <img src="assets/img/hero.jpg" alt="Assiette composée, dressée avec soin chez Marguerite" width="1152" height="864" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+              <figcaption class="mono">Le plat du soir, le 12 août</figcaption>
+            </figure>
+          </div>
+          <div class="band stats">
+            <div class="stat" style="grid-column:1 / 5;">
+              <span class="numeral n">24</span>
+              <p class="mono">pays à la carte</p>
+            </div>
+            <div class="stat" style="grid-column:5 / 9;">
+              <span class="numeral n">18</span>
+              <p class="mono">plats faits maison chaque jour</p>
+            </div>
+            <div class="stat" style="grid-column:9 / 13;">
+              <span class="numeral n">4,9</span>
+              <p class="mono">note des convives</p>
+            </div>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= LA MAISON ================= -->
+    <section class="spread" id="maison">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 02 — La maison</p>
+          </div>
+          <div class="band shead">
+            <p class="kicker mono" style="grid-column:1 / 13;">Fondé en 1998 par Marguerite Moreau</p>
+            <h2 class="shead-title" style="grid-column:1 / 10;">Un comptoir, une poêle, et des mains qui ne trichent pas.</h2>
+            <div class="stack" style="grid-column:1 / 7;">
+              <p class="body">Marguerite a ouvert la salle du coin avec une conviction simple : la bonne cuisine ne se décrète pas, elle se fait. Chaque matin, on choisit les légumes sur le marché, on roule la pâte, on flambe, on assaisonne — à l’œil, comme au premier jour.</p>
+              <p class="body">La carte ne s’arrête pas au coin de la rue. Elle traverse les frontières : les pâtes de Rome, le curry de l’Inde, les tacos de Mexico, le couscous du vendredi. Vingt-quatre traditions, une seule maison.</p>
+              <p class="quote hand" aria-hidden="true">« On cuisine comme on reçoit des amis. » — Marguerite</p>
+            </div>
+            <figure class="about-photo lg lg--b" style="grid-column:8 / 12;">
+              <img src="assets/img/frais.jpg" alt="Légumes frais du marché, prêts à être cuisinés" width="768" height="576" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+              <figcaption class="mono">Les légumes du marché, le matin</figcaption>
+            </figure>
+            <div class="mono note-block" style="grid-column:12 / 13;">
+              <span class="numeral n">98</span>
+              <p>ans d’habitude,<br/>zéro raccourci</p>
+            </div>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= LA CARTE ================= -->
+    <section class="spread" id="carte">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 03 — La carte</p>
+          </div>
+          <div class="band shead">
+            <p class="kicker mono" style="grid-column:1 / 13;">Le tour du monde en six assiettes</p>
+            <h2 class="shead-title" style="grid-column:1 / 9;">La carte du soir, composée comme une lettre.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">Les plats changent avec le marché. Ceux-ci sont les fidèles de la maison.</p>
+          </div>
+
+          <div class="band dish">
+            <span class="numeral" style="grid-column:1 / 2;">01</span>
+            <div class="dish-copy stack" style="grid-column:2 / 9;">
+              <p class="mono origin">Italie — Rome</p>
+              <h3 class="dish-title">Cacio e pepe</h3>
+              <p class="body">Spaghettis frais, pecorino romano, poivre noir passé au moulin. Une carte postale de Rome dans une assiette.</p>
+            </div>
+            <figure class="dish-photo lg lg--b" style="grid-column:9 / 13;">
+              <img src="assets/img/pasta.jpg" alt="Cacio e pepe, pâtes au pecorino et poivre" width="576" height="432" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+            </figure>
+            <p class="price mono" style="grid-column:1 / 2;">14 €</p>
+          </div>
+
+          <div class="band dish">
+            <span class="numeral" style="grid-column:12 / 13;">02</span>
+            <div class="dish-copy stack" style="grid-column:5 / 12;">
+              <p class="mono origin">Thaïlande — Bangkok</p>
+              <h3 class="dish-title">Pad thaï</h3>
+              <p class="body">Nouilles de riz sautées, crevettes, cacahuètes grillées, pousses de soja, citron vert et tamarin. Vif, chaud, honnête.</p>
+            </div>
+            <figure class="dish-photo lg lg--a" style="grid-column:1 / 5;">
+              <img src="assets/img/padthai.jpg" alt="Pad thaï aux crevettes et cacahuètes" width="576" height="432" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+            </figure>
+            <p class="price mono price--r" style="grid-column:12 / 13;">15 €</p>
+          </div>
+
+          <div class="band dish">
+            <span class="numeral" style="grid-column:1 / 2;">03</span>
+            <div class="dish-copy stack" style="grid-column:2 / 9;">
+              <p class="mono origin">Mexique — Mexico</p>
+              <h3 class="dish-title">Tacos al pastor</h3>
+              <p class="body">Tortillas de maïs, porc mariné à l’ananas, oignons confits, coriandre et salsa verde maison. On les mange avec les doigts.</p>
+            </div>
+            <figure class="dish-photo lg lg--c" style="grid-column:9 / 13;">
+              <img src="assets/img/tacos.jpg" alt="Tacos al pastor à la coriandre et à la salsa verde" width="576" height="432" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+            </figure>
+            <p class="price mono" style="grid-column:1 / 2;">12 €</p>
+          </div>
+
+          <div class="band dish">
+            <span class="numeral" style="grid-column:12 / 13;">04</span>
+            <div class="dish-copy stack" style="grid-column:5 / 12;">
+              <p class="mono origin">Inde — Kochi</p>
+              <h3 class="dish-title">Curry jaune de saison</h3>
+              <p class="body">Poulet mariné au curcuma, coco, mangue verte, riz basmati parfumé. Les épices sont torréfiées sur place, chaque midi.</p>
+            </div>
+            <figure class="dish-photo lg lg--a" style="grid-column:1 / 5;">
+              <img src="assets/img/curry.jpg" alt="Curry jaune au poulet, coco et riz basmati" width="576" height="432" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+            </figure>
+            <p class="price mono price--r" style="grid-column:12 / 13;">16 €</p>
+          </div>
+
+          <div class="band dish">
+            <span class="numeral" style="grid-column:1 / 2;">05</span>
+            <div class="dish-copy stack" style="grid-column:2 / 9;">
+              <p class="mono origin">Maghreb — Marrakech</p>
+              <h3 class="dish-title">Couscous du vendredi</h3>
+              <p class="body">Semoule roulée à la main, légumes du marché, bouillon parfumé au ras-el-hanout, merguez et pois chiches. Le plat qui réunit.</p>
+            </div>
+            <figure class="dish-photo lg lg--b" style="grid-column:9 / 13;">
+              <img src="assets/img/couscous.jpg" alt="Couscous aux légumes du marché et merguez" width="576" height="432" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+            </figure>
+            <p class="price mono" style="grid-column:1 / 2;">17 €</p>
+          </div>
+
+          <div class="band dish">
+            <span class="numeral" style="grid-column:12 / 13;">06</span>
+            <div class="dish-copy stack" style="grid-column:5 / 12;">
+              <p class="mono origin">Japon — Tokyo</p>
+              <h3 class="dish-title">Sushi du comptoir</h3>
+              <p class="body">Assortiment du chef, poisson frais du jour, riz vinaigré tiède, wasabi discret. Six pièces, le temps de respirer.</p>
+            </div>
+            <figure class="dish-photo lg lg--c" style="grid-column:1 / 5;">
+              <img src="assets/img/sushi.jpg" alt="Assortiment de sushi du chef" width="576" height="432" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+            </figure>
+            <p class="price mono price--r" style="grid-column:12 / 13;">22 €</p>
+          </div>
+
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= LE LIEU ================= -->
+    <section class="spread" id="lieu">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 04 — Le lieu</p>
+          </div>
+          <div class="band shead">
+            <p class="kicker mono" style="grid-column:1 / 13;">La salle, la flamme, le marché</p>
+            <h2 class="shead-title" style="grid-column:1 / 10;">Trois endroits où la maison se reconnaît.</h2>
+          </div>
+          <div class="band gallery">
+            <figure class="gal lg lg--a" style="grid-column:1 / 5;">
+              <img src="assets/img/salle.jpg" alt="La salle du restaurant, tables en bois et lumière chaude" width="576" height="720" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+              <figcaption class="mono">La salle, le soir</figcaption>
+            </figure>
+            <figure class="gal lg lg--c stagger" style="grid-column:5 / 9;">
+              <img src="assets/img/grill.jpg" alt="La flamme de la rôtissoire en cuisine" width="576" height="720" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+              <figcaption class="mono">La flamme de la rôtissoire</figcaption>
+            </figure>
+            <figure class="gal lg lg--b" style="grid-column:9 / 13;">
+              <img src="assets/img/crepe.jpg" alt="Crêpes maison, garniture généreuse" width="576" height="720" />
+              <div class="lg-rim"></div>
+              <div class="lg-sheen"></div>
+              <div class="lg-frost" aria-hidden="true"></div>
+              <figcaption class="mono">Le dessert du goûter</figcaption>
+            </figure>
+          </div>
+          <div class="band quote-band">
+            <svg class="quote-mark" viewBox="0 0 120 90" aria-hidden="true">
+              <path d="M34 12 C 12 26 10 60 22 78 M70 12 C 48 26 46 60 58 78" fill="none" stroke="#e4002b" stroke-width="9" stroke-linecap="round" filter="url(#rough)"/>
+            </svg>
+            <p class="quote-big" style="grid-column:2 / 12;">On cuisine comme on reçoit des amis : avec le cœur, pas avec les horaires.</p>
+            <p class="mono quote-sig" style="grid-column:10 / 13;">— Marguerite, fondatrice</p>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= RÉSERVER / CONTACT ================= -->
+    <section class="spread" id="reserver">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 05 — Réserver</p>
+          </div>
+          <div class="band shead">
+            <p class="kicker mono" style="grid-column:1 / 13;">Nous écrire</p>
+            <h2 class="shead-title" style="grid-column:1 / 9;">Une table, une question, un mot doux.</h2>
+          </div>
+          <div class="band contact-band">
+            <div class="contact-copy stack" style="grid-column:1 / 6;">
+              <p class="body">Laissez-nous un message : une réservation, une occasion, un coup de cœur. On vous répond dans la journée, sans formule toute faite.</p>
+              <ul class="contact-list mono">
+                <li><span>Email</span>bonjour@chezmarguerite.com</li>
+                <li><span>Horaires</span>Mar – Sam · 12h–14h30, 19h–22h30</li>
+              </ul>
+              <p class="hand-note" aria-hidden="true">réponse dans la journée, promis ↓</p>
+            </div>
+            <form class="contact-form" id="contactForm" style="grid-column:7 / 13;">
+              <div class="form-row">
+                <label>Nom
+                  <input type="text" name="name" placeholder="Votre nom" required autocomplete="name" />
+                </label>
+                <label>Email
+                  <input type="email" name="email" placeholder="vous@exemple.com" required autocomplete="email" />
+                </label>
+              </div>
+              <div class="form-row">
+                <label>Date souhaitée
+                  <input type="date" name="date" />
+                </label>
+                <label>Convives
+                  <select name="guests">
+                    <option>2 personnes</option>
+                    <option>3–4 personnes</option>
+                    <option>5–8 personnes</option>
+                    <option>Un groupe</option>
+                  </select>
+                </label>
+              </div>
+              <label>Message
+                <textarea name="message" rows="4" placeholder="Votre message, votre histoire…" required></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">Envoyer le message</button>
+              <p class="form-status mono" id="formStatus" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="mono">Chez Marguerite — bonjour@chezmarguerite.com</p>
+      <p class="mono">© 2026 — carte composée à la main.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
