@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L'ÉCLAIR — pâtisserie fine</title>
+  <meta name="description" content="L'Éclair : des douceurs cuites le matin, posées sous verre. Comptoir ouvert, livraison sous 48 h." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ---- filtre de réfraction liquide (SVG) ---- -->
+  <svg width="0" height="0" class="svg-filters" aria-hidden="true">
+    <defs>
+      <filter id="liquid" x="-12%" y="-12%" width="124%" height="124%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="7" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="30" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="liquid-soft" x="-8%" y="-8%" width="116%" height="116%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.02 0.03" numOctaves="2" seed="3" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <header class="masthead-bar glass-bar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <p class="brand-name">L'ÉCLAIR <span class="brand-tag mono">pâtisserie fine</span></p>
+    </div>
+    <nav class="topnav mono" aria-label="Navigation principale">
+      <a href="#vitrine">Vitrine</a>
+      <a href="#etages">Étages</a>
+      <a href="#comptoir">Comptoir</a>
+      <a href="#commander" class="nav-cta">Commande <span class="cart-count" id="cartCount" aria-live="polite">0</span></a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= Nº 01 — LA VITRINE ================= -->
+    <section class="spread" id="vitrine">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 01 — La vitrine</p>
+          </div>
+
+          <div class="band hero-band">
+            <div class="substrate hero-substrate" aria-hidden="true">
+              <span class="s-dot s1"></span><span class="s-dot s2"></span><span class="s-dot s3"></span><span class="s-dot s4"></span>
+              <svg class="s-pastry p1" viewBox="0 0 200 200"><path d="M60 114 q40 46 80 0" fill="#f48fb1" stroke="#3a2a1e" stroke-width="5"/><circle cx="84" cy="82" r="24" fill="#f48fb1" stroke="#3a2a1e" stroke-width="5"/><circle cx="84" cy="82" r="16" fill="#ffe9ec"/><circle cx="118" cy="76" r="22" fill="#f7d154" stroke="#3a2a1e" stroke-width="5"/></svg>
+              <svg class="s-pastry p2" viewBox="0 0 200 200"><path d="M45 132 C45 78 88 34 148 40 C158 41 160 55 150 57 C104 52 78 84 78 132 C78 144 72 150 62 150 C54 150 45 143 45 132 Z" fill="#e8a04c" stroke="#3a2a1e" stroke-width="5"/><path d="M60 118 C64 92 82 66 112 58 C118 78 104 92 84 104 C74 111 64 114 60 118 Z" fill="#d68a3c"/></svg>
+              <svg class="s-pastry p3" viewBox="0 0 200 200"><rect x="50" y="45" width="100" height="110" rx="34" fill="#6b4226" stroke="#3a2a1e" stroke-width="5"/><path d="M68 150 q6 22 18 22 q14 0 16 -16" fill="#6b4226" stroke="#3a2a1e" stroke-width="4"/><path d="M118 148 q6 20 16 20 q12 0 14 -14" fill="#6b4226" stroke="#3a2a1e" stroke-width="4"/><path d="M50 78 h100" stroke="#4a2c15" stroke-width="6" stroke-linecap="round"/></svg>
+            </div>
+            <div class="hero-slab glass" style="grid-column:1 / 9;">
+              <div class="hero-copy stack">
+                <p class="kicker mono">Cuit ce matin, posé sous verre</p>
+                <h1 class="masthead">L'ÉCLAIR.<br />SOUS&nbsp;VERRE.</h1>
+                <p class="lede">Du beurre, du sucre, du temps. La pâtisserie se fait à l'aube, se pose dans la vitrine, et traverse le verre sans perdre une miette.</p>
+              </div>
+            </div>
+            <figure class="hero-photo" style="grid-column:9 / 13;">
+              <svg viewBox="0 0 200 200" role="img" aria-label="Paris-brest praliné">
+                <circle cx="100" cy="100" r="60" fill="#a86a3f" stroke="#3a2a1e" stroke-width="5"/>
+                <circle cx="100" cy="100" r="34" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/>
+                <circle cx="100" cy="100" r="47" fill="none" stroke="#3a2a1e" stroke-width="6" stroke-dasharray="15 11"/>
+                <circle cx="100" cy="100" r="28" fill="#ffe8b0"/>
+                <circle cx="100" cy="40" r="11" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/>
+                <circle cx="156" cy="100" r="11" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/>
+                <circle cx="100" cy="160" r="11" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/>
+                <circle cx="44" cy="100" r="11" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/>
+              </svg>
+              <figcaption class="mono">le paris-brest du comptoir — photo verre</figcaption>
+            </figure>
+          </div>
+
+          <div class="band stats">
+            <div class="stat glass chip-amber" style="grid-column:1 / 5;">
+              <p class="stat-num">12</p>
+              <p class="label mono">pièces chaque matin</p>
+            </div>
+            <div class="stat glass chip-pink" style="grid-column:5 / 9;">
+              <p class="stat-num">48&nbsp;h</p>
+              <p class="label mono">four → porte</p>
+            </div>
+            <div class="stat glass chip-mint" style="grid-column:9 / 13;">
+              <p class="stat-num">4,9</p>
+              <p class="label mono">note des gourmands</p>
+            </div>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= Nº 02 — LES ÉTAGES ================= -->
+    <section class="spread" id="etages">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 02 — Les étages</p>
+          </div>
+          <div class="band">
+            <p class="kicker mono" style="grid-column:1 / 13;">Quatre comptoirs de verre</p>
+            <h2 class="shead-title" style="grid-column:1 / 10;">Chaque étage a sa lumière, sa pâte, sa patience.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">On s'y retrouve par gourmandise. Clique pour descendre au comptoir.</p>
+          </div>
+          <div class="band categ-band">
+            <a class="categ-card glass" href="#comptoir" style="grid-column:1 / 4;">
+              <div class="poster poster-tarte"><svg viewBox="0 0 200 200"><path d="M40 124 h120 l-10 -14 h-100 z" fill="#d9a05b" stroke="#3a2a1e" stroke-width="5"/><circle cx="100" cy="120" r="58" fill="#d9a05b" stroke="#3a2a1e" stroke-width="5"/><circle cx="100" cy="114" r="48" fill="#f7d154" stroke="#3a2a1e" stroke-width="5"/><path d="M76 62 q-4 18 10 22 q14 4 12 -16 q-1 -8 -8 -12 q-8 4 -14 6z" fill="#fff8e8" stroke="#3a2a1e" stroke-width="4"/><path d="M100 50 q-4 20 10 24 q14 4 12 -18 q-1 -8 -8 -12 q-8 4 -14 6z" fill="#fff8e8" stroke="#3a2a1e" stroke-width="4"/><path d="M124 62 q-4 18 10 22 q14 4 12 -16 q-1 -8 -8 -12 q-8 4 -14 6z" fill="#fff8e8" stroke="#3a2a1e" stroke-width="4"/></svg></div>
+              <div class="glass-info">
+                <p class="tag mono">03 recettes</p>
+                <p class="cname">TARTES</p>
+              </div>
+            </a>
+            <a class="categ-card glass" href="#comptoir" style="grid-column:4 / 7;">
+              <div class="poster poster-eclair"><svg viewBox="0 0 200 200"><rect x="50" y="45" width="100" height="110" rx="34" fill="#6b4226" stroke="#3a2a1e" stroke-width="5"/><path d="M68 150 q6 22 18 22 q14 0 16 -16" fill="#6b4226" stroke="#3a2a1e" stroke-width="4"/><path d="M118 148 q6 20 16 20 q12 0 14 -14" fill="#6b4226" stroke="#3a2a1e" stroke-width="4"/><path d="M50 78 h100" stroke="#4a2c15" stroke-width="6" stroke-linecap="round"/></svg></div>
+              <div class="glass-info">
+                <p class="tag mono">03 recettes</p>
+                <p class="cname">ÉCLAIRS</p>
+              </div>
+            </a>
+            <a class="categ-card glass" href="#comptoir" style="grid-column:7 / 10;">
+              <div class="poster poster-macaron"><svg viewBox="0 0 200 200"><path d="M60 100 q0 -40 40 -40 q40 0 40 40" fill="#f48fb1" stroke="#3a2a1e" stroke-width="5"/><rect x="58" y="98" width="84" height="16" rx="8" fill="#ffe9ec" stroke="#3a2a1e" stroke-width="5"/><path d="M60 114 q40 44 80 0" fill="#f48fb1" stroke="#3a2a1e" stroke-width="5"/><circle cx="82" cy="70" r="4.5" fill="#fff"/><circle cx="122" cy="66" r="4" fill="#fff"/></svg></div>
+              <div class="glass-info">
+                <p class="tag mono">03 recettes</p>
+                <p class="cname">MACARONS</p>
+              </div>
+            </a>
+            <a class="categ-card glass" href="#comptoir" style="grid-column:10 / 13;">
+              <div class="poster poster-viennoiserie"><svg viewBox="0 0 200 200"><path d="M45 132 C45 78 88 34 148 40 C158 41 160 55 150 57 C104 52 78 84 78 132 C78 144 72 150 62 150 C54 150 45 143 45 132 Z" fill="#e8a04c" stroke="#3a2a1e" stroke-width="5"/><path d="M60 118 C64 92 82 66 112 58 C118 78 104 92 84 104 C74 111 64 114 60 118 Z" fill="#d68a3c"/></svg></div>
+              <div class="glass-info">
+                <p class="tag mono">03 recettes</p>
+                <p class="cname">VIENNOISERIES</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= Nº 03 — LE COMPTOIR ================= -->
+    <section class="spread" id="comptoir">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 03 — Le comptoir</p>
+          </div>
+          <div class="band">
+            <p class="kicker mono" style="grid-column:1 / 13;">Ce qui repose sous verre, à l'instant</p>
+            <h2 class="shead-title" style="grid-column:1 / 10;">Huit pièces nées à l'aube, la miette fraîche.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">Prix TTC, colis soigné, gourmandise garantie.</p>
+          </div>
+          <div class="band catband">
+
+            <div class="item pat-card" data-ref="EC-001" data-price="4.5" style="grid-column:1 / 4;">
+              <div class="poster poster-eclair"><svg viewBox="0 0 200 200"><rect x="50" y="45" width="100" height="110" rx="34" fill="#6b4226" stroke="#3a2a1e" stroke-width="5"/><path d="M68 150 q6 22 18 22 q14 0 16 -16" fill="#6b4226" stroke="#3a2a1e" stroke-width="4"/><path d="M118 148 q6 20 16 20 q12 0 14 -14" fill="#6b4226" stroke="#3a2a1e" stroke-width="4"/><path d="M50 78 h100" stroke="#4a2c15" stroke-width="6" stroke-linecap="round"/></svg></div>
+              <div class="glass-info" data-tilt>
+                <p class="tag mono">Éclairs · EC-001</p>
+                <p class="pname">Éclair au chocolat</p>
+                <div class="prow"><p class="price mono">4,50 €</p><button class="add mono" data-ref="EC-001" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item pat-card" data-ref="EC-002" data-price="2.8" style="grid-column:4 / 7;">
+              <div class="poster poster-macaron"><svg viewBox="0 0 200 200"><path d="M60 100 q0 -40 40 -40 q40 0 40 40" fill="#f48fb1" stroke="#3a2a1e" stroke-width="5"/><rect x="58" y="98" width="84" height="16" rx="8" fill="#ffe9ec" stroke="#3a2a1e" stroke-width="5"/><path d="M60 114 q40 44 80 0" fill="#f48fb1" stroke="#3a2a1e" stroke-width="5"/><circle cx="82" cy="70" r="4.5" fill="#fff"/><circle cx="122" cy="66" r="4" fill="#fff"/></svg></div>
+              <div class="glass-info" data-tilt>
+                <p class="tag mono">Macarons · EC-002</p>
+                <p class="pname">Macaron framboise</p>
+                <div class="prow"><p class="price mono">2,80 €</p><button class="add mono" data-ref="EC-002" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item pat-card" data-ref="EC-003" data-price="5.5" style="grid-column:7 / 10;">
+              <div class="poster poster-tarte"><svg viewBox="0 0 200 200"><path d="M40 124 h120 l-10 -14 h-100 z" fill="#d9a05b" stroke="#3a2a1e" stroke-width="5"/><circle cx="100" cy="120" r="58" fill="#d9a05b" stroke="#3a2a1e" stroke-width="5"/><circle cx="100" cy="114" r="48" fill="#f7d154" stroke="#3a2a1e" stroke-width="5"/><path d="M76 62 q-4 18 10 22 q14 4 12 -16 q-1 -8 -8 -12 q-8 4 -14 6z" fill="#fff8e8" stroke="#3a2a1e" stroke-width="4"/><path d="M100 50 q-4 20 10 24 q14 4 12 -18 q-1 -8 -8 -12 q-8 4 -14 6z" fill="#fff8e8" stroke="#3a2a1e" stroke-width="4"/><path d="M124 62 q-4 18 10 22 q14 4 12 -16 q-1 -8 -8 -12 q-8 4 -14 6z" fill="#fff8e8" stroke="#3a2a1e" stroke-width="4"/></svg></div>
+              <div class="glass-info" data-tilt>
+                <p class="tag mono">Tartes · EC-003</p>
+                <p class="pname">Tarte citron meringuée</p>
+                <div class="prow"><p class="price mono">5,50 €</p><button class="add mono" data-ref="EC-003" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item pat-card" data-ref="EC-004" data-price="1.8" style="grid-column:10 / 13;">
+              <div class="poster poster-viennoiserie"><svg viewBox="0 0 200 200"><path d="M45 132 C45 78 88 34 148 40 C158 41 160 55 150 57 C104 52 78 84 78 132 C78 144 72 150 62 150 C54 150 45 143 45 132 Z" fill="#e8a04c" stroke="#3a2a1e" stroke-width="5"/><path d="M60 118 C64 92 82 66 112 58 C118 78 104 92 84 104 C74 111 64 114 60 118 Z" fill="#d68a3c"/></svg></div>
+              <div class="glass-info" data-tilt>
+                <p class="tag mono">Viennoiseries · EC-004</p>
+                <p class="pname">Croissant beurre AOP</p>
+                <div class="prow"><p class="price mono">1,80 €</p><button class="add mono" data-ref="EC-004" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item pat-card" data-ref="EC-005" data-price="5.9" style="grid-column:1 / 4;">
+              <div class="poster poster-millefeuille"><svg viewBox="0 0 200 200"><rect x="55" y="120" width="90" height="26" rx="6" fill="#e6b06a" stroke="#3a2a1e" stroke-width="5"/><rect x="55" y="94" width="90" height="28" rx="6" fill="#e6b06a" stroke="#3a2a1e" stroke-width="5"/><rect x="55" y="68" width="90" height="28" rx="6" fill="#e6b06a" stroke="#3a2a1e" stroke-width="5"/><path d="M55 108 h90" stroke="#fff3dc" stroke-width="9"/><path d="M55 82 h90" stroke="#fff3dc" stroke-width="9"/><path d="M55 52 q11 8 22 0 q11 8 22 0 q11 8 22 0 q11 8 22 0" fill="none" stroke="#fff8e8" stroke-width="10" stroke-linecap="round"/></svg></div>
+              <div class="glass-info" data-tilt>
+                <p class="tag mono">Tartes · EC-005</p>
+                <p class="pname">Mille-feuille vanille</p>
+                <div class="prow"><p class="price mono">5,90 €</p><button class="add mono" data-ref="EC-005" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item pat-card" data-ref="EC-006" data-price="3.2" style="grid-column:4 / 7;">
+              <div class="poster poster-cannele"><svg viewBox="0 0 200 200"><path d="M56 62 h88 l13 98 q-28 16 -57 16 q-29 0 -57 -16 z" fill="#8a5a38" stroke="#3a2a1e" stroke-width="5"/><path d="M56 62 l7 98 M82 58 l4 100 M106 58 l4 100 M132 62 l-5 98" stroke="#5f3c22" stroke-width="5" fill="none" opacity="0.75"/><ellipse cx="100" cy="62" rx="44" ry="14" fill="#7a4a2b" stroke="#3a2a1e" stroke-width="5"/></svg></div>
+              <div class="glass-info" data-tilt>
+                <p class="tag mono">Viennoiseries · EC-006</p>
+                <p class="pname">Cannelé bordelais</p>
+                <div class="prow"><p class="price mono">3,20 €</p><button class="add mono" data-ref="EC-006" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item pat-card" data-ref="EC-007" data-price="2.5" style="grid-column:7 / 10;">
+              <div class="poster poster-madeleine"><svg viewBox="0 0 200 200"><path d="M50 72 q50 -46 100 0 l-16 58 q-14 18 -34 18 q-20 0 -34 -18 z" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/><path d="M50 72 q50 -46 100 0 l-14 8 q-36 -30 -72 0 z" fill="#d99a4e"/><path d="M66 92 q34 -22 68 0 M62 104 q36 -26 76 0" stroke="#d99a4e" stroke-width="6" fill="none" stroke-linecap="round"/></svg></div>
+              <div class="glass-info" data-tilt>
+                <p class="tag mono">Macarons · EC-007</p>
+                <p class="pname">Madeleine au miel</p>
+                <div class="prow"><p class="price mono">2,50 €</p><button class="add mono" data-ref="EC-007" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+            <div class="item pat-card" data-ref="EC-008" data-price="6.2" style="grid-column:10 / 13;">
+              <div class="poster poster-parisbrest"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="60" fill="#a86a3f" stroke="#3a2a1e" stroke-width="5"/><circle cx="100" cy="100" r="34" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/><circle cx="100" cy="100" r="47" fill="none" stroke="#3a2a1e" stroke-width="6" stroke-dasharray="15 11"/><circle cx="100" cy="100" r="28" fill="#ffe8b0"/><circle cx="100" cy="40" r="11" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/><circle cx="156" cy="100" r="11" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/><circle cx="100" cy="160" r="11" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/><circle cx="44" cy="100" r="11" fill="#e8b36b" stroke="#3a2a1e" stroke-width="5"/></svg></div>
+              <div class="glass-info" data-tilt>
+                <p class="tag mono">Éclairs · EC-008</p>
+                <p class="pname">Paris-brest praliné</p>
+                <div class="prow"><p class="price mono">6,20 €</p><button class="add mono" data-ref="EC-008" type="button">Ajouter</button></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= Nº 04 — LA COMMANDE ================= -->
+    <section class="spread" id="commander">
+      <div class="wrap">
+        <div class="grid">
+          <div class="band">
+            <p class="folio mono" style="grid-column:1 / 13;">Nº 04 — La commande</p>
+          </div>
+          <div class="band">
+            <p class="kicker mono" style="grid-column:1 / 13;">Ta liste, récapitulée sous verre</p>
+            <h2 class="shead-title" style="grid-column:1 / 9;">On emballe, on ficelle, on livre.</h2>
+            <p class="mono menu-note" style="grid-column:10 / 13;">Ajoute des pièces depuis le comptoir.</p>
+          </div>
+          <div class="band order-band">
+            <div class="cart glass" style="grid-column:1 / 6;">
+              <div class="cart-head mono">~/vitrine.txt</div>
+              <div class="cart-body">
+                <ul class="cart-items mono" id="cartItems">
+                  <li class="cart-empty">le plateau est vide.<br />fais un tour au comptoir ↗</li>
+                </ul>
+                <div class="cart-total mono"><span>Total</span><span id="cartTotal">0,00 €</span></div>
+              </div>
+            </div>
+            <form class="order-form" id="orderForm" style="grid-column:7 / 13;">
+              <div class="form-row">
+                <label>Nom
+                  <input type="text" name="name" placeholder="Votre nom" required autocomplete="name" />
+                </label>
+                <label>Email
+                  <input type="email" name="email" placeholder="vous@exemple.com" required autocomplete="email" />
+                </label>
+              </div>
+              <label>Adresse de livraison
+                <input type="text" name="address" placeholder="Nº, rue, code postal, ville" required autocomplete="street-address" />
+              </label>
+              <label>Heure de passage
+                <select name="slot">
+                  <option>aujourd'hui, 10h–12h</option>
+                  <option>aujourd'hui, 15h–18h</option>
+                  <option>demain matin</option>
+                </select>
+              </label>
+              <button class="btn btn-submit mono" type="submit">Envoyer la commande</button>
+              <p class="form-status mono" id="orderStatus" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="mono">L'ÉCLAIR — bonjour@leclair.fr</p>
+      <p class="mono">© 1986–2026 — cuit à l'aube. <kbd class="fake">Ctrl+K</kbd> pour le menu rapide.</p>
+    </div>
+  </footer>
+
+  <!-- ---- menu rapide (Ctrl+K) ---- -->
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Menu rapide" hidden>
+    <div class="palette-frame glass">
+      <div class="palette-head mono">menu rapide</div>
+      <input class="palette-input mono" id="paletteInput" placeholder="taper une commande…" autocomplete="off" />
+      <ul class="palette-list mono" id="paletteList"></ul>
+      <p class="palette-hint mono">↑↓ naviguer · entrée exécuter · échap fermer</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
