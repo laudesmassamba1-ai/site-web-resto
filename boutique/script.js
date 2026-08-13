@@ -35,6 +35,11 @@
   window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(align, 120); });
 })();
 
+/* ---- PRIX FCFA ---- */
+function fmt(n) {
+  return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
+}
+
 /* ---- PANIER ---- */
 var cart = [];
 var CART_KEY = 'bazar-cart';
@@ -56,10 +61,12 @@ function addToCart(ref) {
   if (it) {
     it.qty++;
   } else {
+    var price = parseFloat(card.getAttribute('data-price')) ||
+      parseFloat(card.querySelector('.price').textContent.replace(/[^\d]/g, '')) || 0;
     cart.push({
       ref: ref,
       name: card.querySelector('.pname').textContent.trim(),
-      price: parseFloat(card.querySelector('.price').textContent.replace(/[^\d]/g, '')) || 0,
+      price: price,
       qty: 1
     });
   }
@@ -89,7 +96,7 @@ function renderCart() {
 
   if (!cart.length) {
     list.innerHTML = '<li class="cart-empty">le panier est vide.<br />vas faire un tour au catalogue ↗</li>';
-    total.textContent = '0 €';
+    total.textContent = fmt(0);
     return;
   }
   list.innerHTML = '';
@@ -98,12 +105,12 @@ function renderCart() {
     var left = document.createElement('span');
     left.textContent = it.qty + ' × ' + it.name;
     var right = document.createElement('span');
-    right.innerHTML = '<span class="qty">' + (it.price * it.qty) + ' €</span><button class="remove" data-ref="' + it.ref + '" type="button">✕</button>';
+    right.innerHTML = '<span class="qty">' + fmt(it.price * it.qty) + '</span><button class="remove" data-ref="' + it.ref + '" type="button">✕</button>';
     li.appendChild(left);
     li.appendChild(right);
     list.appendChild(li);
   });
-  total.textContent = cartTotal() + ' €';
+  total.textContent = fmt(cartTotal());
 }
 
 document.querySelectorAll('.add').forEach(function (btn) {
@@ -136,7 +143,7 @@ if (form) {
       return;
     }
     formStatus.style.color = '';
-    formStatus.textContent = 'Commande ' + cartTotal() + ' € enregistrée, merci ' + name + ' ! On envoie sous 48 h.';
+    formStatus.textContent = 'Commande ' + fmt(cartTotal()) + ' enregistrée, merci ' + name + ' ! On envoie sous 48 h.';
     cart = [];
     saveCart();
     renderCart();

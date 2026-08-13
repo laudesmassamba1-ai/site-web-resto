@@ -1,13 +1,13 @@
 /* ============================================================
    L'ÉCLAIR — pâtisserie de quartier
-   - Panier (ajout / quantité / total, prix en euros virgule)
+   - Panier (ajout / quantité / total, prix en francs CFA)
    - Commande (formulaire)
    - Palette de commandes (Ctrl+K)
    ============================================================ */
 
-/* ---- PRIX EUROS ---- */
+/* ---- PRIX FCFA ---- */
 function fmt(n) {
-  return n.toFixed(2).replace('.', ',') + ' €';
+  return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
 }
 
 /* ---- PANIER ---- */
